@@ -3,16 +3,14 @@
 
 using System;
 
-namespace Task02_MoonGravitation
+class MoonGravitation
 {
-    class MoonGravitation
+    static void Main()
     {
-        static void Main()
-        {
-            Console.Write(" Enter weight of a man (in kg) on Earth: ");
-            float manEarthWeight = float.Parse(Console.ReadLine());
+        Console.Write(" Enter weight of a man (in kg) on Earth: ");
+        float manEarthWeight = float.Parse(Console.ReadLine());
 
-            Console.WriteLine(" Weight on the Moon will be: {0}", manEarthWeight * 0.17);
-        }
+        Console.WriteLine(" Weight on the Moon will be: {0}", manEarthWeight * 0.17);
     }
 }
+

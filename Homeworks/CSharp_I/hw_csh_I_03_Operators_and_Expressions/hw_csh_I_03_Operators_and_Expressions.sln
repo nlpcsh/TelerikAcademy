@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task01_OddEvenIntegers", "hw_csh_I_03_Operators_and_Expressions\Task01_OddEvenIntegers.csproj", "{604BA770-F7C0-4D00-9788-87C3A369A4A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task01_OddEvenIntegers", "Task01_OddEvenIntegers\Task01_OddEvenIntegers.csproj", "{604BA770-F7C0-4D00-9788-87C3A369A4A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task02_MoonGravitation", "Task02_MoonGravitation\Task02_MoonGravitation.csproj", "{B20647A3-171C-40F4-8516-167DA4C9190F}"
 EndProject
@@ -12,6 +12,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task04_Rectangles", "Task04_Rectangles\Task04_Rectangles.csproj", "{5CA29363-847C-45BA-8A3E-60C53D766A23}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task05_Third_Digit_is_7", "Task05_ Third_Digit_is_7\Task05_Third_Digit_is_7.csproj", "{C5ED753C-DE3F-48DE-BD71-0A70EC8D179F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task06_FourDigitNumber", "Task06_FourDigitNumber\Task06_FourDigitNumber.csproj", "{4774393E-18A0-4D39-8707-3EA85EA86A5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task07_Point-in-a-Circle", "Task07_Point-in-a-Circle\Task07_Point-in-a-Circle.csproj", "{60D99FEC-A734-4C6A-975E-80A5FFF8D707}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task08_PrimeNumberCheck", "Task08_PrimeNumberCheck\Task08_PrimeNumberCheck.csproj", "{519518D4-1CDB-46D7-A2E9-A075FC2AD062}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{C5ED753C-DE3F-48DE-BD71-0A70EC8D179F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5ED753C-DE3F-48DE-BD71-0A70EC8D179F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5ED753C-DE3F-48DE-BD71-0A70EC8D179F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4774393E-18A0-4D39-8707-3EA85EA86A5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4774393E-18A0-4D39-8707-3EA85EA86A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4774393E-18A0-4D39-8707-3EA85EA86A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4774393E-18A0-4D39-8707-3EA85EA86A5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60D99FEC-A734-4C6A-975E-80A5FFF8D707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60D99FEC-A734-4C6A-975E-80A5FFF8D707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60D99FEC-A734-4C6A-975E-80A5FFF8D707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60D99FEC-A734-4C6A-975E-80A5FFF8D707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{519518D4-1CDB-46D7-A2E9-A075FC2AD062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{519518D4-1CDB-46D7-A2E9-A075FC2AD062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{519518D4-1CDB-46D7-A2E9-A075FC2AD062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{519518D4-1CDB-46D7-A2E9-A075FC2AD062}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
