@@ -1,0 +1,16 @@
+Task 12 - Perform a research (e.g. in Google or Wikipedia) and provide a short list with popular development environments (IDEs) like Visual Studio.
+- Write in a text file called “list-of-IDEs.txt” at least five IDEs along with 2-3 sentences about each of them. Use English.
+
+
+Eclipse - The fundamentally modular nature of the Eclipse platform makes it easy to install additional features and plug-ins into an Eclipse based product, and to update the product's existing features and plug-ins. The Eclipse platform itself is structured as subsystems which are implemented in one or more plug-ins. The subsystems are built on top of a small runtime engine. Some of the advanages of it: 
+- Language Extensibility are not limited and anyone is free to develop plug-ins for different languages and to make the development environment easier to use. Also, the ability to use this on Linux is a great sway for many people;
+- It is free. 
+
+Netbeans -  The NetBeans Platform is a generic framework for Swing applications. It provides the "plumbing" that, before, every developer had to write themselves—saving state, connecting actions to menu items, toolbar items and keyboard shortcuts; window management, and so on.
+The NetBeans Platform provides all of these out of the box. It gives you a time-tested architecture for free. An architecture that encourages sustainable development practices. Because the NetBeans Platform architecture is modular, it's easy to create applications that are robust and extensible.
+
+EDE (Emacs Development Environment) - generic interface for managing projects. It can manage or create user's makefiles and other building environment duties. It specifies a single set of menus and keybindings, while supporting multiple ways to express a project via a build system. In EDE, a project hierarchy matches a directory hierarchy. The project's topmost directory is called the project root, and its subdirectories are subprojects. Each project can contain multiple targets. A target, at the simplest level, is a named collection of files within a project. EDE provides a way for other tools to easily learn file associations. It is free (Under the GNU GPL).
+
+Aptana Studio - oriented to web and scripting languages as PHP, Ruby on Rails, and Python. The studio itself is available as a plugin for Eclipse if the user prefers the way Aptana handles his/hers work and want to combine it with a more comprehensive IDE. It is free and available solely under the GNU General Public License.
+
+Code::Blocs - is a free C, C++ and Fortran IDE built to meet the most demanding needs of its users. It is designed to be very extensible and fully configurable. Built around a plugin framework, Code::Blocks can be extended with plugins. Any kind of functionality can be added by installing/coding a plugin. Runs on Linux, Mac and Windows. 
