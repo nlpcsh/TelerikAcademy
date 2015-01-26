@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task05_TheBiggestNb", "Task
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task06_BiggestOfFiveNb", "Task06_BiggestOfFiveNb\Task06_BiggestOfFiveNb.csproj", "{DEDC7361-BDC3-4923-AC5E-93BF1D25091D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task07_Sort 3 Numbers with Nested Ifs", "Test07_Sort 3 Numbers with Nested Ifs\Task07_Sort 3 Numbers with Nested Ifs.csproj", "{5B8C0770-ACA6-4921-B553-8079F87EDFAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task07_Sort 3 Numbers with Nested Ifs", "Task07_Sort 3 Numbers with Nested Ifs\Task07_Sort 3 Numbers with Nested Ifs.csproj", "{5B8C0770-ACA6-4921-B553-8079F87EDFAA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task08_CheckForDigit", "Task08_CheckForDigit\Task08_CheckForDigit.csproj", "{4838F91F-99CA-4FC0-92A0-E0C962C51F0F}"
 EndProject
