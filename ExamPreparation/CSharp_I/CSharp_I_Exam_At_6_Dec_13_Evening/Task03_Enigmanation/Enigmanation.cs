@@ -18,10 +18,7 @@ class Enigmanation
 
         foreach (char symbol in inputText)
         {
-            if (symbol == '=')
-            {
-                break;
-            }
+           
 
             switch (symbol)
             {
@@ -40,6 +37,7 @@ class Enigmanation
                     else
                     {
                         result = PerformeOperation(result, resultInBrackets, savedOperation);
+                        currentResult = result;
                     }
                     inBrackets = false;
                     continue;
@@ -83,13 +81,18 @@ class Enigmanation
                 operation = symbol;
             }
 
+            if (symbol == '=')
+            {
+                break;
+            }
+
             counter++;
-            Console.WriteLine(" ----------------------------------- ");
-            Console.WriteLine(" Step is: {0}", counter);
-            Console.WriteLine(" Current Result is: {0}", currentResult);
-            Console.WriteLine(" Result is: {0}", result);
-            Console.WriteLine(" Operation is: {0} ", operation);
-            Console.WriteLine(" saved operation is: {0}", savedOperation);
+            //Console.WriteLine(" ----------------------------------- ");
+            //Console.WriteLine(" Step is: {0}", counter);
+            //Console.WriteLine(" Current Result is: {0}", currentResult);
+            //Console.WriteLine(" Result is: {0}", result);
+            //Console.WriteLine(" Operation is: {0} ", operation);
+            //Console.WriteLine(" saved operation is: {0}", savedOperation);
         }
 
         Console.WriteLine("{0:F3}", result);
