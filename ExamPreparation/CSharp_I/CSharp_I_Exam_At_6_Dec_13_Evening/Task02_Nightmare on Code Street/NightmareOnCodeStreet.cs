@@ -11,13 +11,13 @@ class NightmareOnCodeStreet
 
         foreach (char digit in strNumber)
         {
-            if (counter % 2 == 1)
+            if (digit >= '0' && digit <= '9')
             {
-                string stringDigit = Convert.ToString(digit);
-                int tmpVar = int.Parse(stringDigit);
-
-                sum += tmpVar;
-                totalOddDigits++;
+                if (counter % 2 == 1)
+                {
+                    sum += digit - '0';
+                    totalOddDigits++;
+                }
             }
             counter++;
         }
