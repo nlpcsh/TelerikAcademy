@@ -1,19 +1,17 @@
-﻿// Task 2 - Write a program that reads two integer arrays from the console and
-//   compares them element by element.
+﻿// Task 3 - Write a program that compares two char arrays lexicographically (letter by letter).
 
 using System;
 using System.Linq;
 
-class CompareArrays
+class CompareCharArrays
 {
     static void Main()
     {
         bool isEqual = false;
-        Console.WriteLine(" Enter a line of numbers for the first array (1 2 4 6 8...): ");
-        int[] arrayOne = Console.ReadLine().Split(' ').Select(n => Convert.ToInt32(n)).ToArray();
-
-        Console.WriteLine(" Enter a line of numbers for the second array (11 22 41 65 8...): ");
-        int[] arrayTwo = Console.ReadLine().Split(' ').Select(n => Convert.ToInt32(n)).ToArray();
+        Console.WriteLine(" Enter the first line of characters to compare (any text will do): ");
+        char[] arrayOne = Console.ReadLine().Select(n => Convert.ToChar(n)).ToArray();
+        Console.WriteLine(" Enter the second line of characters to compare (any text will do): ");
+        char[] arrayTwo = Console.ReadLine().Select(n => Convert.ToChar(n)).ToArray();
 
         if (arrayOne.Length == arrayTwo.Length)
         {
@@ -31,6 +29,5 @@ class CompareArrays
         {
             Console.WriteLine(" No equal element are present! ");
         }
-
     }
 }

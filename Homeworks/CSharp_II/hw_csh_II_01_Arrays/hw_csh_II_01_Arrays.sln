@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task01 Alocate Array", "hw_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task02_Compare Arrays", "Task02_Compare Arrays\Task02_Compare Arrays.csproj", "{79CE68A8-72AB-48B0-9CAF-08F19CD1F318}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task03_Compare Char Arrays", "Task03_Compare Char Arrays\Task03_Compare Char Arrays.csproj", "{CFB8E0E9-5DF0-466D-8FA2-9291A6A73461}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task04_Maximal Sequence", "Task04_Maximal Sequence\Task04_Maximal Sequence.csproj", "{7AA4264D-DFAA-4E95-A3BE-8FF1A9671516}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task05_Maximal Increasing Sequence", "Task05_Maximal Increasing Sequence\Task05_Maximal Increasing Sequence.csproj", "{09DAC60F-0806-493A-B68A-3797503B1349}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{79CE68A8-72AB-48B0-9CAF-08F19CD1F318}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79CE68A8-72AB-48B0-9CAF-08F19CD1F318}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79CE68A8-72AB-48B0-9CAF-08F19CD1F318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFB8E0E9-5DF0-466D-8FA2-9291A6A73461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFB8E0E9-5DF0-466D-8FA2-9291A6A73461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFB8E0E9-5DF0-466D-8FA2-9291A6A73461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFB8E0E9-5DF0-466D-8FA2-9291A6A73461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AA4264D-DFAA-4E95-A3BE-8FF1A9671516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AA4264D-DFAA-4E95-A3BE-8FF1A9671516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AA4264D-DFAA-4E95-A3BE-8FF1A9671516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AA4264D-DFAA-4E95-A3BE-8FF1A9671516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09DAC60F-0806-493A-B68A-3797503B1349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09DAC60F-0806-493A-B68A-3797503B1349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09DAC60F-0806-493A-B68A-3797503B1349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09DAC60F-0806-493A-B68A-3797503B1349}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
