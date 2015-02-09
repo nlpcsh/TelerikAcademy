@@ -16,7 +16,7 @@ class MaximalIncreasingSequence
 
         for (int i = 0; i < arrayInt.Length - 1; i++)
         {
-            if (arrayInt[i+1] == arrayInt[i] + 1 )
+            if (arrayInt[i + 1] == arrayInt[i] + 1)
             {
                 outputList.Add(arrayInt[i]);
 
