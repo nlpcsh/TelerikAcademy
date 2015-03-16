@@ -14,7 +14,7 @@ namespace HW01_Define_a_Class
         private double hoursIdle;
         private double hoursTalk;
 
-        public BatteryType Model
+        public BatteryType Model 
         {
             get { return model; }
 
