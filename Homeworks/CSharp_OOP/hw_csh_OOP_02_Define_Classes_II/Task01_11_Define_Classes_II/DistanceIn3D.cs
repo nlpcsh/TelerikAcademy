@@ -8,15 +8,16 @@ namespace Education_3D
 
     static class DistanceIn3D
     {
-        static void CalculateDistance(Point3D firstPoint, Point3D secondPoint)
+        public static double CalculateDistance(Point3D firstPoint, Point3D secondPoint)
         {
-            double dX = Math.Abs(firstPoint.X - secondPoint.X);
-            double dY = Math.Abs(firstPoint.Y - secondPoint.Y);
-            double dZ = Math.Abs(firstPoint.Z - secondPoint.Z);
+            double dX = Math.Abs(firstPoint.x - secondPoint.x);
+            double dY = Math.Abs(firstPoint.y - secondPoint.y);
+            double dZ = Math.Abs(firstPoint.z - secondPoint.z);
 
             double distance = Math.Sqrt( dZ * dZ + dX * dX + dY * dY );
 
-            Console.WriteLine(" Distance is: {0}", distance);
+            return distance;
+
         }
     }
 }

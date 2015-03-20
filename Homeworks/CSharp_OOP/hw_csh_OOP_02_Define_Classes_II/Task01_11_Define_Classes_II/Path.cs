@@ -1,10 +1,10 @@
 ﻿
 namespace Education_3D
 {
-    using System;
+    //using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    //using System.Linq;
+    //using System.Text;
 
     public class Path
     {
@@ -20,5 +20,16 @@ namespace Education_3D
             this.paths.Add(point);
         }
 
+        public List<Point3D> ToList()
+        {
+            var path = new List<Point3D>();
+
+            for (int i = 0; i < paths.Count; i++)
+			{
+                path.Add(paths[i]);
+			}
+            return path;
+
+        }
     }
 }

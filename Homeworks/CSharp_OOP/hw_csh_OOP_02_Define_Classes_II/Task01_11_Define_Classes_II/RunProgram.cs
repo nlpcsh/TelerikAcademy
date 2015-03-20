@@ -58,45 +58,76 @@ namespace Education_3D
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    public struct Point3D
-    {
-        private static readonly Point3D pointO = new Point3D( 0, 0, 0 );
-
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Z { get; set; }
-
-        public static Point3D Point0
-        {
-            get { return pointO; }
-        }
-
-        public Point3D(double x, double y, double z)
-        {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
-        }
-
-
-        public override void ToString()
-        {
-            Console.WriteLine(string.Format("Point({0},{1},{2})", this.X, this.Y, this.Z));
-        }
-
-        public static void PrintInitialPoint()
-        {
-            Console.WriteLine("Point0 ({0},{1},{2})", pointO.X, pointO.Y, pointO.Z);
-        }
-    }
+    //using System.Linq;
+    //using System.Text;
 
     class RunProgram
     {
         static void Main()
         {
+            // Problem 1 - Structure
+            var somePoint = new Point3D(1, 1, 2);
+            Console.WriteLine(somePoint.ToString());
+
+            var secondPoint = new Point3D(1, 1, 1);
+            Console.WriteLine(secondPoint.ToString());
+
+            // Problem 2 - Static read-only field
+            Point3D.PrintInitialPoint();
+
+            // Problem 3 - Static class
+            var distance = DistanceIn3D.CalculateDistance(somePoint, secondPoint);
+            Console.WriteLine("Distance is: {0}", distance);
+
+            // Problem 4 - Path
+            var pathOfPoints = new Path();
+            pathOfPoints.AddPoint(somePoint);
+            pathOfPoints.AddPoint(secondPoint);
+
+            // create file with points of the paths
+            PathStorage.WritePathToFile(pathOfPoints.ToList());
+
+            // read points from file (lines counting from 1)
+            var patshFromFile = PathStorage.ReadPathFromFile(1);
+            // print points from file:
+            //for (int i = 0; i < patshFromFile.Count; i++)
+            //{
+            //    Console.WriteLine(patshFromFile[i].ToString()); 
+            //}
+
+            // Problem 5 - Generic list
+            var someList = new GenericList<int>();
+            Console.WriteLine("Some Generic list<int> printings:");
+            someList.Add(1);
+            someList.Add(22);
+            someList.Add(2);
+            Console.WriteLine(someList.ToString());
+
+            someList.Remove(0);
+            Console.WriteLine(someList.ToString());
+
+            someList.Incert(1, 44);
+            Console.WriteLine(someList.ToString());
+
+            someList.Clear();
+            Console.WriteLine(someList.ToString());
+
+            // Problem 6 - Auto-grow
+            Console.WriteLine(" List length BEFORE adding any elements: {0} ", someList.Length);
+            someList.Add(11);
+            someList.Add(12);
+            Console.WriteLine(" List length AFTER adding 2 elements: {0} ", someList.Length);
+            someList.Add(13);
+            someList.Add(33);
+            someList.Add(44);
+            Console.WriteLine(" List length AFTER adding 5 elements: {0} ", someList.Length);
+            Console.WriteLine(someList.ToString());
+
+            // Problem 7 - Min and Max
+            Console.WriteLine("Max value is: {0}", someList.Max());
+            Console.WriteLine("Min value is: {0}", someList.Min());
+
+            // Problem 8 - Matrix
 
         }
     }

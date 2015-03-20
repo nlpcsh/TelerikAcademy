@@ -45,6 +45,7 @@
     <Compile Include="GenericList.cs" />
     <Compile Include="Path.cs" />
     <Compile Include="PathStorage.cs" />
+    <Compile Include="Point3D.cs" />
     <Compile Include="RunProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
