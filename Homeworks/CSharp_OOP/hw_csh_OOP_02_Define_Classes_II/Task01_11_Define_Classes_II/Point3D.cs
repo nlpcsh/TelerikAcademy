@@ -6,6 +6,7 @@ namespace Education_3D
     //using System.Linq;
     //using System.Text;
 
+    [VersionAttribute("version 1.11")]
     public struct Point3D
     {
         private static readonly Point3D pointO = new Point3D(0, 0, 0);

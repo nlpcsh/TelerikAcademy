@@ -58,11 +58,11 @@ namespace Education_3D
 {
     using System;
     using System.Collections.Generic;
-    //using System.Linq;
-    //using System.Text;
+
 
     class RunProgram
     {
+        
         static void Main()
         {
             // Problem 1 - Structure
@@ -127,8 +127,50 @@ namespace Education_3D
             Console.WriteLine("Max value is: {0}", someList.Max());
             Console.WriteLine("Min value is: {0}", someList.Min());
 
-            // Problem 8 - Matrix
+            // Problem 8, 9 - Matrix
+            var matrix1 = new Matrix<int>(2,2);
+            // put some values in the matrix
 
+            Console.WriteLine(" Matrix 1: ");
+            matrix1.PutSomeValues(matrix1, 2);
+            matrix1.PrintMatrix();
+
+            var matrix2 = new Matrix<int>(2, 2);
+            // put some values in the matrix
+            Console.WriteLine(" Matrix 2: ");
+            matrix2.PutSomeValues(matrix2, 1);
+            matrix2.PrintMatrix();
+
+            // Problem 10 - Check operators over matrixes
+            Console.WriteLine(" Summed matrix is: ");
+            var sumMatrix = matrix1 + matrix2;
+            sumMatrix.PrintMatrix();
+
+            Console.WriteLine(" Minus matrix is: ");
+            var minusMatrix = matrix1 - matrix2;
+            minusMatrix.PrintMatrix();
+
+            Console.WriteLine(" Mult matrix is: ");
+            var multMatrix = matrix1 * matrix2;
+            multMatrix.PrintMatrix();
+
+            if (matrix1)
+            {
+                Console.WriteLine("True");
+            }
+            else
+            {
+                Console.WriteLine("False");
+            }
+
+            // Problem 11 - Version attribute
+            Type type = typeof(Point3D);
+            object[] attr = type.GetCustomAttributes(false);
+            foreach (VersionAttribute item in attr)
+            {
+                Console.WriteLine(item.Version);
+            }
         }
+
     }
 }
