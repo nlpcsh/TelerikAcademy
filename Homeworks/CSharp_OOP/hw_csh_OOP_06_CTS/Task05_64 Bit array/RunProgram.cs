@@ -12,7 +12,13 @@ namespace Task05_64_Bit_array
     {
         static void Main()
         {
+            BitArray64 myTestBitArray = new BitArray64(4312321);
 
+            foreach (var item in myTestBitArray)
+            {
+                Console.Write("{0}", item);
+            }
+            Console.WriteLine();
         }
     }
 }

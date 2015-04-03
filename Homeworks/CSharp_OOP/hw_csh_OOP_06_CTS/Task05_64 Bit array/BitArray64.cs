@@ -5,121 +5,141 @@ namespace Task05_64_Bit_array
     using System.Collections;
     using System.Collections.Generic;
 
-    class BitArray64 : IEnumerable<int>
+    public class BitArray64 : IEnumerable<int>
     {
-        private ulong variable64;
+        private readonly ulong number;
 
-        public ulong Variable64
+        // constuctor
+        public BitArray64(ulong number = 0)
         {
-            get { return variable64; }
-            set { variable64 = value; }
-        }
-        
-        public BitArray64(ulong variable)
-        {
-            this.Variable64 = variable;
+            this.number = number;
         }
 
-        public int[] BitArray
+        // Bit transform
+        public int[] Bits
         {
-            get { return this.Convert(this.Variable64 ); }
+            get
+            {
+                return this.GetBits();
+            }
         }
 
+        // indexator 
         public int this[int index]
         {
             get
             {
-                if (index < 0 || index >= BitArray.Length)
+                if (!this.IndexCheck(index))
                 {
-                    throw new IndexOutOfRangeException("No such index");
+                    throw new ArgumentOutOfRangeException();
                 }
-                return BitArray[index];
+
+                int[] bits = this.GetBits();
+                return bits[index];
             }
         }
 
-        public IEnumerator<int> GetEnumerator()
+        // Methods
+        public static bool operator ==(BitArray64 firstArray, BitArray64 secondArray)
         {
-            for (int i = 0; i < this.BitArray.Length; i++)
-            {
-                yield return this.BitArray[i];
-            }
+            return BitArray64.Equals(firstArray, secondArray);
         }
 
+        public static bool operator !=(BitArray64 firstArray, BitArray64 secondArray)
+        {
+            return !BitArray64.Equals(firstArray, secondArray);
+        }
+
+        // Enumerator interface implementation
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();
         }
 
-        public override int GetHashCode()
+        public IEnumerator<int> GetEnumerator()
         {
-            return this.Variable64.GetHashCode() ^ 123 ^
-                   this.BitArray[5].GetHashCode() ^
-                   this.BitArray[25].GetHashCode();
-        }
+            int[] bits = this.GetBits();
 
-        public static bool operator ==(BitArray64 first, BitArray64 second)
-        {
-            return first.Equals(second);
-        }
-
-        public static bool operator !=(BitArray64 first, BitArray64 second)
-        {
-            return !first.Equals(second);
-        }
-
-        private int[] Convert(ulong value)
-        {
-            int[] result = new int[64];
-            int counter = 63;
-
-            do
+            for (int i = 0; i < bits.Length; i++)
             {
-                result[counter] = (int)value % 2;
-                value /= 2;
-                counter--;
-            } while (value > 0);
+                yield return bits[i];
+            }
+        }
 
-            if (counter > 0)
+        public bool Equals(BitArray64 value)
+        {
+            if (ReferenceEquals(null, value))
             {
-                for (int i = counter; i >= 0; i--)
-                {
-                    result[i] = 0;
-                }
+                return false;
             }
 
-            return result;
+            if (ReferenceEquals(this, value))
+            {
+                return true;
+            }
+
+            return this.number == value.number;
         }
 
         public override bool Equals(object obj)
         {
-            if (obj is BitArray64)
+            BitArray64 temp = obj as BitArray64;
+            if (temp == null)
             {
-                for (int i = 0; i < this.BitArray.Length; i++)
-                {
+                return false;
+            }
+            else
+            {
+                return this.Equals(temp);
+            }
+        }
 
-                    if (this.BitArray[i] != (obj as BitArray64).BitArray[i])
-                    {
-                        return false;
-                    }
-                }
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int result = 17;
+                result = (result * 23) + this.number.GetHashCode();
+                return result;
+            }
+        }
 
+        // index checker
+        private bool IndexCheck(int index)
+        {
+            if (index < 0 || index > 63)
+            {
+                return false;
+            }
+            else
+            {
                 return true;
             }
-            if (obj is string)
+        }
+
+        // bit getter
+        private int[] GetBits()
+        {
+            ulong number = this.number;
+
+            int[] bits = new int[64];
+            int counter = 63;
+
+            while (number > 0)
             {
-                var padded = (obj as string).PadLeft(64, '0');
-
-                for (int i = 0; i < padded.Length; i++)
-                {
-                    if (int.Parse(padded[i].ToString()) != this.BitArray[i])
-                    {
-                        return false;
-                    }
-                }
-
-                return true;
+                bits[counter] = (int)number % 2;
+                number = number / 2;
+                counter--;
             }
-            return false;
+
+            do
+            {
+                bits[counter] = 0;
+                counter--;
+            }
+            while (counter >= 0);
+
+            return bits;
         }
     }
 }
