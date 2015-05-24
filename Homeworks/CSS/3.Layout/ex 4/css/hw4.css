@@ -1,0 +1,114 @@
+body {
+	background-color: #F2F2F2;
+	font: 12px verdana;
+}
+	section {
+		border: 1px solid black;
+		margin: 1px;
+	}
+		table {
+			border-collapse: separate;
+			border-spacing: 2px;
+		}
+				ul {
+					display: inline-block;
+					list-style-type: none;
+					margin: 0px;
+					padding: 0px;
+					padding-left: 5px;
+					margin-bottom: 10px;
+				}
+					a {
+						color: #950D0B ;
+					}
+					div.tables-headers {
+						color: white;
+						background-color: gray;
+						font-weight: bold;
+						margin-top: 20px;
+					}
+					div.first-header {
+						margin-top: 0px;
+					}
+
+/*  Left side of the page  */
+
+			td#left-side ul li a {
+				text-decoration: none;
+				color: black;
+			}
+			td#left-side ul li a:nth-child(3) {
+				font-weight: bold;
+			}
+			td#left-side ul li a.left-menu-topic {
+				color: #950D0B;
+				font-weight: bold;
+			}
+		#left-side {
+			width: 140px;
+			vertical-align: top;
+		}
+
+/*  Central column of the page   */
+
+		td#center-of-the-site {
+			background-color: white;
+			vertical-align: top;
+			border: 1px solid gray;
+			padding-right: 5px;
+		}
+			td#center-of-the-site input {
+				width: 100px;
+				height: 20px;
+				font-size: 12px ;
+				border: 1px solid black;
+			}
+			td#center-of-the-site img {
+				float: left; 
+			}
+			input.left-button {
+				background-image: url('../images/left-arrow.png');
+			}
+			input.right-button {
+				background-image: url('../images/right-arrow.png');
+			}
+			p.first-paragraph {
+				margin-left: 110px;
+				font-weight: bold;
+			}
+
+/*  Right side of the page  */
+
+		td#right-side {
+			display: inline-block;
+			vertical-align: top;
+
+		}
+			td#right-side ul li {
+				border: 1px solid gray;
+				margin-top: 0px;
+				margin-bottom: 3px;
+				margin-left: -5px;
+				background-color: white;
+				text-align: center;
+				padding: 3px;
+			}
+				td#right-side ul li > div:first-child {
+					margin-top: -5px;
+					margin-left: -5px;
+					margin-right: -5px;
+					margin-bottom: 3px;
+					padding: 0px;
+				}
+				input.blue-button {
+					margin: 5px;
+					width: 90px;
+					height: 30px;
+					color: #16C6FF;
+					background-color: #D7F1FE;
+					border: 1px solid #4285B5;
+				}
+			td#right-side ul li {
+				padding: 5px;
+				width: 140px;
+			}

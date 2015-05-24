@@ -1,0 +1,31 @@
+body {
+    font: 24px console;
+}
+    ul {
+        list-style-type: none;
+        position: absolute;
+    }
+        li a {
+            text-decoration: none;
+            color: black;
+        }
+        li:hover > a + ul {
+            display: block;
+            padding-left: 15px;
+        }
+    ul.sub-list {
+        position: relative;
+        display: none;
+        font-size: 20px;
+        font-style: bold;
+    }
+        li.main-list {
+        	position: relative;
+        }
+            li:hover > a {
+                text-decoration: underline;
+                color: green;
+            }
+            ul.sub-list li a {
+            	color: gray;
+            }

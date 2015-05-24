@@ -1,0 +1,66 @@
+header {
+	font-size: 30px ;
+	font-weight:  normal ;
+}
+table.ContactNames {
+	width: 825px;
+	height: 243px;
+	font-size: 22px;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	text-align: left;
+	font-family: Arial;
+	vertical-align: middle;
+	border-collapse:collapse;
+	border-style: solid;
+	border-color: inherit;
+}
+	table.ContactNames td {
+		padding-left: 8px;
+	}
+	.Flag {
+	    width: 32px;
+	    height: 32px;
+	}
+	.Country {
+	    vertical-align: middle ;
+	    padding-bottom: 18px;
+	}
+	th {
+		color: white;
+		font-style:normal;
+		padding: 8px;
+		padding-bottom:10px;
+		background-color: #5CBD08 ;
+		vertical-align:top;
+		font-weight:normal ;
+		border-bottom :1px solid Grey;
+	}
+	tr:nth-of-type(2n+1) {
+		background-color: #FFFFFF ;
+		color: black;
+	}
+	tr:nth-of-type(2n) {
+		background-color: #EDEDDA ;
+		color: black;
+	}
+	td:nth-child(1) , th:nth-child(1) {
+	    width: 234px;
+	    font-style:normal;
+	    border-right :1px solid Grey;
+	}
+	td:nth-child(2) , th:nth-child(2) {
+	    width: 180px;
+	    border-right :1px solid Grey;
+	}
+	td:nth-child(3) , th:nth-child(3) {
+	    width: 210px;
+	    border-right :1px solid Grey;
+	}
+	input[type=checkbox] , input[type=checkbox]:checked {
+	    width: 25px;
+	    height: 25px;
+	    padding: 0px;
+	    box-shadow: 3px 3px 1px #888888 inset ;
+	}

@@ -1,0 +1,187 @@
+body {
+	font-family: Arial ;
+	font-size: 12px;
+	max-height: 425px;
+	max-width: 390px;
+}
+    td, button, input {
+        margin: 0;
+        padding: 0;
+    }
+
+/*  Background of the window  */
+
+	.windowBackgrd {
+
+		padding-left:   7px;
+		padding-right:  7px;
+		padding-bottom: 7px;
+		border-radius:  7px;
+			/* Firefox 3.6+ */
+		background: -moz-linear-gradient(100% 100% 90deg, #B0CFEC, #F4F9FE);
+			/* Safari 4-5, Chrome 1-9 */
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#B0CFEC), to(#F4F9FE));
+			/* Safari 5.1+, Chrome 10+ */
+		background: -webkit-linear-gradient(#F4F9FE, #B0CFEC);
+			/* Opera 11.10+ */
+		background: -o-linear-gradient(#2F2727, #B0CFEC);
+	}
+
+/*  Calculator's icon and title */
+
+	img {
+		margin-top: 5px;
+	}
+	img + span {
+		display: inline-block;
+		font-size: 14px;
+		padding-top: 5px;
+		padding-left: 3px;
+		vertical-align: top;
+	}
+
+/*	Calculator's Window buttons    */
+
+	#min_max {
+		float: right;
+		position: relative;
+		right: 0px;
+		top: 0px;
+		margin: 0;
+	}
+
+/* Body of the calculator */
+
+	.calcBackground {
+		background-color: #DBE6F2;
+		border: 1px solid gray;
+	}
+	.container {
+		padding: 10px;
+	}
+
+/* Menu */
+
+	.mainMenu {
+		padding-left: 3px;
+		height: 18px;
+		font: 12px arial ;
+		border-bottom: 1px solid gray ;
+		background: linear-gradient(to bottom, #fefeff 0%, #e1e6f6 60%, #eeeeee 97%, #e1e6f6 100%);
+	}
+	.mainMenu span {
+		text-decoration: underline;
+	}
+	#screen {
+		border: 1px solid gray;
+		border-radius: 3px;
+		box-shadow: inset 0 0 0 1px #fff;
+		text-align: right ;
+		font: 24px consolas;
+		padding-top: 15px;
+		padding-right: 5px;
+		padding-bottom: 5px;
+		max-height: 45px ;
+		/* Firefox 3.6+ */
+		background: -moz-linear-gradient(100% 100% 90deg, #EAF2FB, #FFFFFF);
+		/* Safari 4-5, Chrome 1-9 */
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), to(#EAF2FB));
+		/* Safari 5.1+, Chrome 10+ */
+		background: -webkit-linear-gradient(#EAF2FB, #FFFFFF);
+		/* Opera 11.10+ */
+		background: -o-linear-gradient(#EAF2FB, #FFFFFF);
+	}
+
+/*  Binary window   */
+
+	.binaryWindow {
+		padding-left: 5px;
+		border-radius: 3px;
+		font: 11px consolas;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		height: 60px;
+		border-collapse: collapse;
+		border: 1px solid #727F8C;
+		box-shadow: inset 0 0 0 1px #fff;
+	}
+	.binaryWindow td {
+		min-width: 42px ;
+		height: 10px;
+	}
+	tr:nth-of-type(2n) {
+		color: gray;
+	}
+	.binaryWindow tr:nth-of-type(2) td:last-child {
+		padding-left: 11px;
+	}
+	.binaryWindow tr:nth-of-type(4) td:last-child {
+		padding-left: 18px;
+	}
+
+/*  Buttons  */
+
+	.radioButtonBox {
+		width: 64px ;
+		height: 94px ;
+		border: 1px solid gray;
+		border-radius: 3px;
+		padding-top: 9px;
+		padding-left: 5px;
+		font: 13px arial;
+		margin-right: 2px;
+		margin-bottom: 2px;
+	}
+	.Radio {
+		margin: 4px;
+	}
+	input[type=button] {
+		width: 30px ;
+		height: 30px ;
+		margin: 1px;
+	}
+	input[value='='] {
+		height: 67px;
+	}
+	input[value='0'] {
+		width: 65px;
+	}
+	.NonActive { 
+		background: #D9E4F1; 
+		border: 1px solid #727F8C;
+		font-size: 14px;
+	}
+	.Active {
+		border: 1px solid #727F8C;
+		font-size: 12px;
+		background: #e4ebf4; /* Old browsers */
+		background: -moz-linear-gradient(top,  #e4ebf4 0%, #e4ebf4 51%, #d6e1ef 52%, #d6e1ef 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4ebf4), color-stop(51%,#e4ebf4), color-stop(52%,#d6e1ef), color-stop(100%,#d6e1ef)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #e4ebf4 0%,#e4ebf4 51%,#d6e1ef 52%,#d6e1ef 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #e4ebf4 0%,#e4ebf4 51%,#d6e1ef 52%,#d6e1ef 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #e4ebf4 0%,#e4ebf4 51%,#d6e1ef 52%,#d6e1ef 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #e4ebf4 0%,#e4ebf4 51%,#d6e1ef 52%,#d6e1ef 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4ebf4', endColorstr='#d6e1ef',GradientType=0 ); /* IE6-9 */
+	}
+	.Active:hover {
+		border: 1px solid #727F8C;
+        border-color: #F5D50F;
+        background: -webkit-linear-gradient(#FEF5EB 0%, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+        background: -moz-linear-gradient(#FEF5EB 0%, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+        background: -o-linear-gradient(#FEF5EB 0%, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+        background: linear-gradient(#FEF5EB 0%, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    }
+	.Digits {
+		font: 16px sans-serif ;
+	/*	background: -webkit-linear-gradient(#F8FBFF, #E8EFF7);*/
+		border: 1px solid #727F8C;
+		box-shadow: inset 0 0 0 1px #fff; 
+		background: #f7fbff; /* Old browsers */
+		background: -moz-linear-gradient(top,  #f7fbff 0%, #f7fbff 52%, #eaf1f9 53%, #eaf1f9 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7fbff), color-stop(52%,#f7fbff), color-stop(53%,#eaf1f9), color-stop(100%,#eaf1f9)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #f7fbff 0%,#f7fbff 52%,#eaf1f9 53%,#eaf1f9 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #f7fbff 0%,#f7fbff 52%,#eaf1f9 53%,#eaf1f9 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #f7fbff 0%,#f7fbff 52%,#eaf1f9 53%,#eaf1f9 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #f7fbff 0%,#f7fbff 52%,#eaf1f9 53%,#eaf1f9 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7fbff', endColorstr='#eaf1f9',GradientType=0 ); /* IE6-9 */
+	}
