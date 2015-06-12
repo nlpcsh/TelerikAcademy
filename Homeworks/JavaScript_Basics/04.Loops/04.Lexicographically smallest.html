@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>4.Lexicographically smallest</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 4. Lexicographically smallest - Write a script that finds the lexicographically smallest and largest property in document, window and navigator objects.
+    </div>
+    <br/>
+    <a href="#" id="btn-check-prime" onclick="onCheckLexBtnClick()">Lexicographically smallest and largest property...</a>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    function onCheckLexBtnClick() {
+        var arr1 = [window, navigator, document];
+
+        for (var i = 0; i < 3; i += 1) {
+            var Result = '',
+                arr2;
+
+            for (var property in arr1[i]) {
+                Result += property + ' ';
+            }
+
+            arr2 = Result.split(' ');
+
+            arr2.sort();
+
+            var ResultOut = arr1[i] + '  Min: ' + arr2[1] + ' // Max: ' + arr2[arr2.length - 1];
+
+            jsConsole.writeLine(ResultOut);
+        }
+    }
+    </script>
+</body>
+
+</html>

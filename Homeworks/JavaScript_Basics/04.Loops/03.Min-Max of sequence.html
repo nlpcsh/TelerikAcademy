@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>3.Min/Max of sequence</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 3. Min/Max of sequence - Write a script that finds the max and min number from a sequence of numbers.
+    </div>
+    <br/>
+    <label for="tb-number">Put a number sequence separated by spaces </label>
+    <input type="textarea" id="tb-number" />
+    <a href="#" id="btn-check-prime" onclick="onCheckPrintBtnClick()">Porocessing...</a>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    function orderedBySize(a, b) {
+        return (a == b) ? 0 : (a > b) ? 1 : -1;
+    }
+
+    function onCheckPrintBtnClick() {
+        var input = jsConsole.read("#tb-number");
+        var arr = input.split(" ");
+
+        var i = arr.length - 1;
+
+        while (i >= 0) {
+            if (isNaN(arr[i])) {
+                jsConsole.writeLine("Error in the sequence - 'NaN' occured!");
+                i = -100;
+                break;
+            } else {
+                arr[i] = parseInt(arr[i]);
+            }
+
+            i -= 1;
+        }
+
+        if (i >= -1) {
+            jsConsole.write("the array's alements are: ");
+            jsConsole.writeLine(arr.length);
+
+            //// 1-th way to do it:
+            //
+            // arr.sort(orderedBySize);
+            // var outMin = " Min: " + arr[0] ;
+            // var outMax = " Max: " + arr[arr.length - 1] ;
+            ////
+
+            //// 2-nd way to do it:
+            var maxVal, minVal;
+
+            maxVal = arr[0];
+            minVal = arr[0];
+
+            for (i = arr.length - 1; i >= 0; i -= 1) {
+                if (arr[i] >= maxVal) {
+                    maxVal = arr[i];
+                } else if (arr[i] <= minVal) {
+                    minVal = arr[i];
+                }
+            }
+            var outMin = " Min: " + minVal;
+            var outMax = " Max: " + maxVal;
+            //
+            ////
+
+            jsConsole.writeLine(outMin);
+            jsConsole.writeLine(outMax);
+        }
+    }
+    </script>
+</body>
+
+</html>

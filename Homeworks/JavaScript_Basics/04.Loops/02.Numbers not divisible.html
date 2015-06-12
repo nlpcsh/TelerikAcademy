@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2.Numbers not divisible</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 2. Numbers not divisible - Write a script that prints all the numbers from 1 to N, that are not divisible by 3 and 7 at the same time
+    </div>
+    <br/>
+    <input type="text" id="tb-number" />
+    <a href="#" id="btn-check-prime" onclick="onCheckPrintBtnClick()">Printing...</a>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    function onCheckPrintBtnClick() {
+        var N = jsConsole.readInteger("#tb-number"),
+            number = 1;
+
+        while (number <= N) {
+            if (((number % 3) !== 0) || ((number % 7) !== 0)) {
+                jsConsole.writeLine(number);
+            }
+
+            number += 1;
+        }
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>1.Numbers</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 1. Numbers - Write a script that prints all the numbers from 1 to N.
+    </div>
+    <br/>
+    <input type="text" id="tb-number" />
+    <a href="#" id="btn-check-prime" onclick="onCheckPrintBtnClick()">Printing...</a>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    function onCheckPrintBtnClick() {
+        var N = jsConsole.readInteger("#tb-number"),
+            number = 1;
+
+        while (number <= N) {
+            jsConsole.writeLine(number);
+            number += 1;
+        }
+    }
+    </script>
+</body>
+
+</html>
