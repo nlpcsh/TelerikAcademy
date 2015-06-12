@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>5.Appearance count</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 5. Appearance count - Write a function that counts how many times given number appears in given array.
+        <br/> Write a test function to check if the function is working correctly.
+    </div>
+    <br/>
+
+    <label for="number">Look for number:</label>
+    <input type="text" id="number" />
+    <input type="button" onClick="runCountNum()" value='Go' />
+    <br/>
+    <br/>
+    <div id="js-console"></div>
+
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+    var initialArray = [1, 2, 3, 6, 8, 1, 2, 4, 8, 11, 23, 11, 1];
+    // global variable!
+    count = 0;
+
+    jsConsole.writeLine('The Array is: ' + initialArray);
+
+    function countNum(number) {
+        var i, 
+        	len;
+        count = 0;
+
+        for (i = 0, len = initialArray.length; i < len; i += 1) {
+            if (initialArray[i] === number) {
+                count += 1;
+            }
+        }
+        return count;
+    }
+
+    function testCountNum() {
+        var runsOK = false,
+        	countOK = 0;
+        // predefined test for the given array:
+        if (countNum(2) === 2) {
+            countOK += 1;
+        }
+
+        if (countNum(1) === 3) {
+            countOK += 1;
+        }
+
+        if (countNum(11) === 2) {
+            countOK += 1;
+        }
+
+        if (countOK === 3) {
+            jsConsole.writeLine(' countNum() test completed OK! ');
+            return true;
+        } else {
+            jsConsole.writeLine(' Function test NOT completed! Error occured! ');
+            return false;
+        }
+    }
+
+    function runCountNum() {
+        var number = jsConsole.readFloat('#number'),
+        	// test function CountNum()
+        	runsOK = testCountNum();
+
+        if (isNaN(number)) {
+            jsConsole.writeLine('Please enter a number!');
+        } else {
+            if (runsOK) {
+                countNum(number);
+
+                jsConsole.writeLine('The number ' + number + ' appear ' + count + ' times.');
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

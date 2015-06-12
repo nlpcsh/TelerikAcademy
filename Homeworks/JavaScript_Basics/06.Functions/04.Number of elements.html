@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4.Number of elements</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 4. Number of elements - Write a function to count the number of div elements on the web page
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<div id="div4"></div>
+	<div id="div5"></div>
+	<div id="div6"></div>
+	<div id="div7"></div>
+	<div id="div8"></div>
+	<div id="div9"></div>
+	<div id="div0"></div>
+
+	<script src="scripts/js-console.js"></script>
+	<script>
+	(function divCount()
+    {
+	    var counter = document.getElementsByTagName("div").length ;
+	    jsConsole.writeLine("The number of divs in the page are: " + counter);
+    })();
+
+	</script>
+</body>
+</html>

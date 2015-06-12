@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>6.Larger than neighbours</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 6. Larger than neighbours - Write a function that checks if the element at given position in given array of integers is bigger than its two neighbours (when such exist).
+    </div>
+    <br/>
+    
+    <label for="number">Index of the Array's element [0...12]</label>
+    <input type="text" id="number" />
+    <input type="button" onClick="runCheck(initialArray)" value='Go!' />
+    <br/>
+    <br/>
+
+    <div id="js-console"></div>
+
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+    var initialArray = [1, 2, 3, 6, 8, 1, 2, 4, 8, 11, 23, 11, 1];
+
+    jsConsole.writeLine('Array: ' + initialArray);
+
+    function runCheck(initialArray) {
+        var elementIndex = jsConsole.readFloat('#number');
+
+        if (isNaN(elementIndex)) {
+            jsConsole.writeLine('Please enter a number!');
+        } else {
+            checkNeighbours(initialArray, elementIndex);
+        }
+    }
+
+    function checkNeighbours(initialArray, elementIndex) {
+        var leftSide,
+            rightSide,
+            arrLen = initialArray.length - 1;
+
+        // Border cases -> ........
+        if (elementIndex === 0) {
+            jsConsole.writeLine(' The element is the first of the Array');
+            leftSide = 'Non';
+
+        } else if (elementIndex === arrLen) {
+            jsConsole.writeLine(' The element is the last of the Array');
+            rightSide = 'Non';
+        }
+        // ..... Border cases <-
+
+        var number = parseInt(initialArray[elementIndex]),
+            previous = parseInt(initialArray[elementIndex - 1]),
+            next = parseInt(initialArray[elementIndex + 1]);
+
+        if (rightSide !== 'Non') {
+            if (number > next) {
+                rightSide = ' smaller ';
+            } else if (number === next) {
+                rightSide = ' equal ';
+            } else {
+                rightSide = ' bigger ';
+            }
+        }
+
+        if (leftSide !== 'Non') {
+            if (number > previous) {
+                leftSide = ' smaller ';
+            } else if (number === previous) {
+                leftSide = ' equal ';
+            } else {
+                leftSide = ' bigger ';
+            }
+        }
+        jsConsole.writeLine(' The element ' + number + ' has: ');
+        jsConsole.writeLine(leftSide.fontcolor('pink') + ' number from left side and');
+        jsConsole.writeLine(rightSide.fontcolor('red') + ' number from right side');
+    }
+    </script>
+</body>
+
+</html>

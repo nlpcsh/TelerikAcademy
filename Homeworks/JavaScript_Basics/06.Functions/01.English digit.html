@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>1.English digit</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 1. English digit - Write a function that returns the last digit of given integer as an English word.
+	</div>
+
+	<br/>
+	<label for="tb-number">Number: </label>
+	<input id="tb-number" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onPrintSignBtnClick()">Convert last digit to text</a>
+	<br />
+	<br />
+	
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+
+	<script>
+		function onPrintSignBtnClick() {
+			var number = jsConsole.readFloat("#tb-number");
+			convertLastDigit(number);
+		}
+
+		function convertLastDigit(number) {
+			var lastNumber = number % 10 ;
+			var lastNumberText = "" ;
+
+			switch (lastNumber)
+			{
+				case 0: lastNumberText = " zero " ; break ;
+				case 1: lastNumberText = " one " ; break ;
+				case 2: lastNumberText = " two " ; break ;
+				case 3: lastNumberText = " three " ; break ;
+				case 4: lastNumberText = " four " ; break ;
+				case 5: lastNumberText = " five " ; break ;
+				case 6: lastNumberText = " six " ; break ;
+				case 7: lastNumberText = " seven " ; break ;
+				case 8: lastNumberText = " eight " ; break ;
+				case 9: lastNumberText = " nine " ; break ;
+				default: jsConsole.writeLine(" Last digit is NaN "); break ;
+			}
+
+			jsConsole.writeLine(" Last digit is: " + lastNumberText) ;
+		}
+	</script>
+</body>
+</html>

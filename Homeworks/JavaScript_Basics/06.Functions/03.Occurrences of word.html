@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>3.Occurrences of word</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 3. Occurrences of word - Write a function that finds all the occurrences of word in a text.
+        <br/> The search can be case sensitive or case insensitive.
+        <br/> Use function overloading.
+        <br/> Print the obtained array on the console.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var isSensitive = true,
+        textString = 'Ut mollis turpis enim, eget suscipit massa tincidunt in. Phasellus fringilla arcu vitae dolor ullamcorper tempus commodo vel arcu. Ut a leo neque. Maecenas posuere eleifend hendrerit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin eget sem purus. Nunc luctus odio sed dui varius, vitae laoreet mi iaculis. Mauris tempus ut velit vitae tempus. Pellentesque posuere risus lectus, ac malesuada turpis semper vitae. Sed quam justo, feugiat quis placerat at, viverra sit amet quam. Duis scelerisque ut sit amet sapien in ut mollis. Duis eu feugiat tortor, pretium aliquet diam. Quisque ac fermentum purus. Maecenas convallis viverra turpis, in eleifend metus ornare a. Morbi hendrerit aliquet lorem quis viverra. Ut morbi dictum ligula et diam gravida porttitor.',
+        wordToSearch = 'Ut';
+
+    jsConsole.writeLine(textString);
+    textArray = textString.split(' ');
+    jsConsole.writeLine('Word To Search: ' + wordToSearch.fontcolor('#FF55FF'));
+
+    function howManyTimesOneWordInText(textArray, wordToSearch, isSensitive) {
+        var wordCounter = 0,
+            i;
+
+        if (isSensitive) {
+            jsConsole.writeLine('Search is case sensitive... ');
+
+            for (i in textArray) {
+                if (wordToSearch === textArray[i]) {
+                    wordCounter += 1;
+                }
+            }
+        } else {
+            jsConsole.writeLine('Search is case INsensitive... ');
+
+            var textArrayLC = [],
+                wordToSearchLC = wordToSearch.toLowerCase();
+
+            for (i in textArray) {
+                textArrayLC[i] = textArray[i].toLowerCase();
+
+                if (wordToSearchLC === textArrayLC[i]) {
+                    wordCounter += 1;
+                }
+            }
+        }
+
+        jsConsole.writeLine('The word ' + wordToSearch + ' occures ' + wordCounter + ' times.');
+    }
+
+    howManyTimesOneWordInText(textArray, wordToSearch);
+
+    howManyTimesOneWordInText(textArray, wordToSearch, isSensitive);
+    </script>
+</body>
+
+</html>
