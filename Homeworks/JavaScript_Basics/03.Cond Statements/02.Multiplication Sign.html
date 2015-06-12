@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2.Multiplication Sign</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 2. Multiplication Sign - Write a script that shows the sign (+, - or 0) of the product of three real numbers, without calculating it.
+        <br/> Use a sequence of if operators.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var real1 = -2,
+        real2 = 3,
+        real3 = -1,
+        sign = ' ';
+
+    jsConsole.writeLine('Variables evaluated: ' + real1 + ', ' + real2 + ', ' + real3);
+
+    if (real1 < 0) {
+        if (real2 < 0) {
+            if (real3 < 0) {
+                sign = '-';
+            } else {
+                if (real3 === 0) {
+                    sign = '0';
+                } else {
+                    sign = '+';
+                }
+            }
+        } else {
+            if (real2 === 0) {
+                sign = '0';
+            } else {
+                if (real3 < 0) {
+                    sign = '+';
+                } else {
+                    if (real3 === 0) {
+                        sign = '0';
+                    } else {
+                        sign = '-';
+                    }
+                }
+            }
+        }
+    } else // real1 >= 0
+    {
+        if (real1 === 0) {
+            sign = '0';
+        } else {
+            if (real2 < 0) {
+                if (real3 < 0) {
+                    sign = '+';
+                } else // real3 >= 0
+                {
+                    if (real3 === 0) {
+                        sign = '0';
+                    } else {
+                        sign = '-';
+                    }
+                }
+            } else // real2 >= 0
+            {
+                if (real2 === 0) {
+                    sign = '0';
+                } else {
+                    if (real3 < 0) {
+                        sign = '-';
+                    } else // real3 >= 0
+                    {
+                        if (real3 === 0) {
+                            sign = '0';
+                        } else {
+                            sign = '+';
+                        }
+                    }
+                }
+            }
+        }
+    }
+    jsConsole.writeLine('Result is: ' + sign);
+    </script>
+</body>
+
+</html>

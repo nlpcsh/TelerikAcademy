@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>8.Number as words</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 8. Number as words - Write a script that converts a number in the range [0…999] to words, corresponding to its English pronunciation.
+    </div>
+    <br/>
+    <label for="tb-number">Number [0...999]: </label>
+    <input type="text" id="tb-number1" />
+    <br />
+    <a href="#" onclick="onEvenOddButtonClick()">Number to text...</a>
+    <br />
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    function digitToText(numberToConvert) {
+        var textOfDigit;
+
+        switch (numberToConvert) {
+            case 1:
+                textOfDigit = "one";
+                break;
+            case 2:
+                textOfDigit = "two";
+                break;
+            case 3:
+                textOfDigit = "three";
+                break;
+            case 4:
+                textOfDigit = "four";
+                break;
+            case 5:
+                textOfDigit = "five";
+                break;
+            case 6:
+                textOfDigit = "six";
+                break;
+            case 7:
+                textOfDigit = "seven";
+                break;
+            case 8:
+                textOfDigit = "eight";
+                break;
+            case 9:
+                textOfDigit = "nine";
+                break;
+            case 0:
+                textOfDigit = "zero";
+                break;
+        }
+
+        return textOfDigit;
+    }
+
+    function onEvenOddButtonClick() {
+        var number = jsConsole.readFloat("#tb-number1"),
+            hundreds,
+            tens,
+            digits,
+            textHundreds,
+            textTens,
+            textDigits,
+            textNumber;
+
+        if (isNaN(number)) {
+            jsConsole.writeLine("The inpit is NaN !");
+        } else if (number > 999) {
+            jsConsole.writeLine("Very big number !");
+        } else if (number < 0) {
+            jsConsole.writeLine("The number is less than 0 !");
+        } else {
+
+            digits = parseInt(number % 10);
+            tens = parseInt((number / 10) % 10);
+            hundreds = parseInt((number / 100) % 10);
+
+            if (hundreds !== 0) {
+                textHundreds = digitToText(hundreds) + ' hundred ';
+
+                if ((tens !== 0) || (digits !== 0)) {
+                    textHundreds = textHundreds + 'and ';
+                }
+            } else {
+                textHundreds = '';
+            }
+
+            textTens = digitToText(tens) + 'ty ';
+
+            if (tens === 0) {
+                textTens = '';
+            }
+
+            textDigits = digitToText(digits);
+
+            if (((tens !== 0) || (hundreds !== 0)) && (digits === 0)) {
+                textDigits = '';
+            }
+
+            if (tens === 1) {
+                switch (digits) {
+                    case 0:
+                        textTens = ' ten ';
+                        break;
+                    case 1:
+                        textTens = ' eleven ';
+                        break;
+                    case 2:
+                        textTens = ' twelve ';
+                        break;
+                    case 3:
+                        textTens = ' thirteen ';
+                        break;
+                    case 5:
+                        textTens = ' fifteen ';
+                        break;
+                    case 8:
+                        textTens = ' eighteen ';
+                        break;
+                    default:
+                        textTens = digitToText(digits) + 'teen ';
+                }
+
+                textDigits = '';
+            }
+
+            if (tens === 2) {
+                textTens = ' twenty ';
+            }
+            if (tens === 3) {
+                textTens = ' thirty ';
+            }
+            if (tens === 5) {
+                textTens = ' fifty ';
+            }
+            if (tens === 8) {
+                textTens = ' eighty ';
+            }
+
+            textNumber = textHundreds + textTens + textDigits;
+
+            jsConsole.writeLine(textNumber);
+        }
+    }
+    </script>
+</body>
+
+</html>

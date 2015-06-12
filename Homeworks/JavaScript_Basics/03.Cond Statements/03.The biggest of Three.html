@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>3.The biggest of Three</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 3. The biggest of Three - Write a script that finds the biggest of three numbers.
+        <br/> Use nested if statements.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var int1 = 5,
+        int2 = 43,
+        int3 = -23,
+        result = 0;
+
+    jsConsole.writeLine('Initial numbers: ' + int1 + ' ' + int2 + ' ' + int3);
+
+    if (int1 < int2) {
+        if (int2 < int3) {
+            result = int3;
+        } else // int2 > int3
+        {
+            if (int1 < int3) {
+                result = int2;
+            } else // int1 > int3
+            {
+                result = int2;
+            }
+        }
+    } else // int1 > int2
+    {
+        if (int2 > int3) {
+            result = int1;
+        } else // int2 < int3
+        {
+            if (int1 < int3) {
+                result = int3;
+            } else // int1 > int3
+            {
+                result = int1;
+            }
+        }
+    }
+    jsConsole.writeLine('The biggest number: ' + result);
+    </script>
+</body>
+
+</html>

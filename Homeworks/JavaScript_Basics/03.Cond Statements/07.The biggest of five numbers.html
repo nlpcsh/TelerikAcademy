@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>7.The biggest of five numbers</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 7. The biggest of five numbers - Write a script that finds the greatest of given 5 variables.
+        <br/> Use nested if statements.
+    </div>
+    <br/>
+    <label for="tb-number">a: </label>
+    <input type="text" id="tb-number1" />
+    <br />
+    <label for="tb-number">b: </label>
+    <input type="text" id="tb-number2" />
+    <br />
+    <label for="tb-number">c: </label>
+    <input type="text" id="tb-number3" />
+    <br />
+    <label for="tb-number">d: </label>
+    <input type="text" id="tb-number4" />
+    <br />
+    <label for="tb-number">e: </label>
+    <input type="text" id="tb-number5" />
+    <br />
+    <a href="#" onclick="onEvenOddButtonClick()">Find biggest number</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    function onEvenOddButtonClick() {
+        var a = jsConsole.readFloat("#tb-number1"),
+            b = jsConsole.readFloat("#tb-number2"),
+            c = jsConsole.readFloat("#tb-number3"),
+            d = jsConsole.readFloat("#tb-number4"),
+            e = jsConsole.readFloat("#tb-number5"),
+            greatest;
+
+        if (isNaN(a) || isNaN(b) || isNaN(c) || isNaN(d) || isNaN(e)) {
+            jsConsole.writeLine('Atleast one of the inpit is NaN!');
+        } else {
+            if ((a >= b) && (a >= c) && (a >= d) && (a >= e)) {
+                greatest = a;
+            } else if ((b >= a) && (b >= c) && (b >= d) && (b >= e)) {
+                greatest = b;
+            } else if ((c >= a) && (c >= b) && (c >= d) && (c >= e)) {
+                greatest = c;
+            } else if ((d >= a) && (d >= b) && (d >= c) && (d >= e)) {
+                greatest = d;
+            } else if ((e >= a) && (e >= b) && (e >= c) && (e >= d)) {
+                greatest = e;
+            }
+
+            jsConsole.writeLine(' Greatest number is: ' + greatest);
+        }
+    }
+    </script>
+</body>
+
+</html>

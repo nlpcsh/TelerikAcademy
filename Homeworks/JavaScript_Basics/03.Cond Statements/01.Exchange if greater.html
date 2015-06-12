@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>1.Exchange if greater</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 1. Exchange if greater - Write an if statement that takes two double variables a and b and exchanges their values if the first one is greater than the second.
+        <br/> As a result print the values a and b, separated by a space.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var number1 = 3,
+        number2 = 4,
+        someNb = 0;
+
+    jsConsole.writeLine('a = ' + number1);
+    jsConsole.writeLine('b = ' + number2);
+
+    if (number1 > number2) {
+        jsConsole.writeLine('Values exchanged!');
+        someNb = number2;
+        number2 = number1;
+        number1 = someNb;
+    } else {
+        jsConsole.writeLine('No values exchange!');
+    }
+
+    jsConsole.writeLine(number1 + ' ' + number2);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>5.Digit as word</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 5. Digit as word - Write a script that asks for a digit (0-9), and depending on the input, shows the digit as a word (in English).
+        <br/> Print “not a digit” in case of invalid input.
+        <br/> Use a switch statement.
+    </div>
+    <br/>
+    <label for="tb-number">Digit: </label>
+    <input type="text" id="tb-number" />
+    <br />
+    <a href="#" onclick="onEvenOddButtonClick()">GO!</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    function onEvenOddButtonClick() {
+        var number = jsConsole.readFloat("#tb-number");
+
+        var digit;
+
+        switch (number) {
+            case 1:
+                digit = "one";
+                break;
+            case 2:
+                digit = "two";
+                break;
+            case 3:
+                digit = "three";
+                break;
+            case 4:
+                digit = "four";
+                break;
+            case 5:
+                digit = "five";
+                break;
+            case 6:
+                digit = "six";
+                break;
+            case 7:
+                digit = "seven";
+                break;
+            case 8:
+                digit = "eight";
+                break;
+            case 9:
+                digit = "nine";
+                break;
+            case 0:
+                digit = "zero";
+                break;
+            default:
+                digit = "Not a digit!";
+                break;
+        }
+        jsConsole.writeLine(digit);
+    }
+    </script>
+</body>
+
+</html>

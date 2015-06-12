@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>4.Sort 3 numbers</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 4. Sort 3 numbers - Sort 3 real values in descending order.
+        <br/> Use nested if statements.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var int1 = 5,
+        int2 = 43,
+        int3 = -23,
+        result = ' ';
+
+    jsConsole.writeLine('Integers to sort: ' + int1 + ' ' + int2 + ' ' + int3);
+
+    if (int1 < int2) {
+        if (int2 < int3) {
+            result = ' ' + int1 + ' ' + int2 + ' ' + int3;
+        } else // int2 > int3
+        {
+            if (int1 < int3) {
+                result = ' ' + int1 + ' ' + int3 + ' ' + int2;
+            } else // int1 > int3
+            {
+                result = ' ' + int3 + ' ' + int1 + ' ' + int2;
+            }
+        }
+    } else // int1 > int2
+    {
+        if (int2 > int3) {
+            result = ' ' + int3 + ' ' + int2 + ' ' + int1;
+        } else // int2 < int3
+        {
+            if (int1 < int3) {
+                result = ' ' + int2 + ' ' + int1 + ' ' + int3;
+            } else // int1 > int3
+            {
+                result = ' ' + int2 + ' ' + int3 + ' ' + int1;
+            }
+        }
+    }
+    jsConsole.writeLine('Sorted numbers: ' + result);
+    </script>
+</body>
+
+</html>

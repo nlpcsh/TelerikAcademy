@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>6.Quadratic equation</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 6. Quadratic equation - Write a script that reads the coefficients a, b and c of a quadratic equation
+        <br/> ax2 + bx + c = 0
+        <br/> and solves it (prints its real roots).
+        <br/> Calculates and prints its real roots.
+    </div>
+    <br/>
+    <label for="tb-number">a: </label>
+    <input type="text" id="tb-number1" />
+    <br />
+    <label for="tb-number">b: </label>
+    <input type="text" id="tb-number2" />
+    <br />
+    <label for="tb-number">c: </label>
+    <input type="text" id="tb-number3" />
+    <br />
+    <a href="#" onclick="onEvenOddButtonClick()">Calculate quadratic eq.</a>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    function onEvenOddButtonClick() {
+        var a = jsConsole.readFloat("#tb-number1"),
+            b = jsConsole.readFloat("#tb-number2"),
+            c = jsConsole.readFloat("#tb-number3"),
+            determ = 0.0,
+            x1 = 0.0,
+            x2 = 0.0;
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+            jsConsole.writeLine("a, b, c must be a number");
+        } else {
+            if (a !== 0) {
+                determ = (b * b - 4 * a * c);
+
+                jsConsole.writeLine(" Determinant is: " + determ);
+
+                if (determ < 0) {
+                    jsConsole.writeLine(" No real roots present!!!");
+                } else {
+                    x1 = (-b + Math.sqrt(determ)) / (2 * a);
+                    x2 = (-b - Math.sqrt(determ)) / (2 * a);
+
+                    if (x1 === x2) {
+                        jsConsole.writeLine(" One real root present: " + x1);
+                    } else {
+                        jsConsole.writeLine(" X1 = " + x1);
+                        jsConsole.writeLine(" X2 = " + x2);
+                    }
+                }
+            } else {
+                jsConsole.writeLine(" Not a quadratic equation! ");
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
