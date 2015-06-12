@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rectangle's area</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 3. Rectangle area - 
+		Write an expression that calculates rectangle's area by given width and height.
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var width = 5,
+			height = 5,
+			area = 0;
+		if ((width > 0) && (height > 0)) {
+			area = width * height;
+			jsConsole.writeLine("The rectangle's area with width " + width + " and height " + height + " is " + area + ".");
+		} else {
+			jsConsole.writeLine("The enetered width or height is not correct!");
+		}
+	</script>
+</body>
+</html>

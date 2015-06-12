@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HW - JS - DATA types </title>
+</head>
+<body>
+<h1> See the JS script results in the browser's console! </h1>
+
+    <script>
+
+    // 1 - Task! - Write an expression that checks if given integer is odd or even
+
+        var inputNumber = 8 ;
+        var checkIfOddEven = (( inputNumber % 2 ) === 0 ) ? "even" : "odd" ;
+
+        console.log(checkIfOddEven);
+
+    // 2 - Task! - Write a boolean expression that checks for given integer if it can be divided (without remainder) by 7 and 5 in the same time
+
+        inputNumber = 35 ;
+        var divTo7 = (( inputNumber % 7 ) === 0 ) ? "yes" : "can't divide to 7!" ;
+        var divTo5 = (( inputNumber % 5 ) === 0 ) ? "yes" : "can't divide to 5!" ;
+        var resutlOfDivide = (divTo7 === divTo5) ? "the number can be divided to 5 and 7!" : "Not possible to divide!" ;
+
+        console.log(resutlOfDivide);
+
+    // 3 - Task! - Write an expression that calculates rectangle’s area by given width and height
+
+        var rectangleWidth  = 7 ,
+            rectangleHeight = 5 ;
+
+        var rectangleSurface = rectangleWidth * rectangleHeight ;
+
+        console.log("Rectangle surface is:", rectangleSurface);
+
+    // 4 - Task! - Write an expression that checks for given integer if its third digit (right-to-left) is 7. E.g. 1732 -> true
+        inputNumber = 293179 ;
+        var check3thDigit = (( parseInt( inputNumber / 100 ) % 10 ) === 7 ) ? "is 7!" : "not 7!" ;
+
+        console.log(check3thDigit);
+
+    // 5 - Task! - Write a boolean expression for finding if the bit 3 (counting from 0) of a given integer is 1 or 0
+
+    //    var integer3BitTest = 23; // 10111 // false
+    //    var integer3BitTest = 25; // 11001 // true
+        var integer3BitTest = 16; // 10000 // false
+    //    var integer3BitTest = 8; // 1000 // true
+        var check3thBit = ( integer3BitTest & 8 ) ? true : false ;
+
+        console.log(check3thBit); 
+
+    // 6 - Task! - Write an expression that checks if given print (x,y) is within a circle K(O, 5)
+
+        var x = 2. ,
+            y = 3. ,
+            c = (( x * x + y * y ) <= 25. ) ? "in the circle" : "out of the circle" ;
+
+        console.log(c);
+
+    // 7 - Task! - Write an expression that checks if given positive integer number n (n ≤ 100) is prime. E.g. 37 is prime
+
+        inputNumber = 53 ;
+
+        var checkIfPrime2 = (( inputNumber % 2 ) === 0) ? "not prime - div by 2!" : "could be!" ;
+        var checkIfPrime3 = (( inputNumber % 3 ) === 0) ? "not prime - div by 3!" : "could be!" ;
+        var checkIfPrime5 = (( inputNumber % 5 ) === 0) ? "not prime - div by 5!" : "could be!" ;
+        var checkIfPrime7 = (( inputNumber % 7 ) === 0) ? "not prime - div by 7!" : "could be!" ;
+
+        var primeOrNot = ((checkIfPrime2 === checkIfPrime3 ) === ( checkIfPrime5 === checkIfPrime7 )) ? " is prime!" : " sorry, it is not prime!!!" ;
+
+        console.log(inputNumber, primeOrNot) ;
+
+    // 8 - Task! - Write an expression that calculates trapezoid's area by given sides a and b and height h
+
+        var a = 5,
+            b = 7,
+            h = 4,
+            TrapezArea = ( a + b ) * h / 2 ;
+
+        console.log("Area of the trapezoid is: ", TrapezArea) ;
+
+    // 9 - Task! - Write an expression that checks for given point (x, y) if it is within the circle K( (1,1), 3) and out of the rectangle R(top=1, left=-1, width=6, height=2)
+
+        x = 1 ;
+        y = 3 ;
+
+        var inRect = ((( x <= 5 ) && ( x >= -1 )) && (( y <= 1 ) && ( y >= -2 ))) ? true : false ;
+
+        var inCircle = (( (x - 1) * (x - 1) + (y - 1) * (y - 1) ) <= 9. ) ? true : false ;
+
+        var checkIfInside = ((inCircle === true) && (inRect === false)) ? " -> point is OUTSIDE the rectangle and INSIDE the circle!" : " -> Point is ontside of the desired area!" ;
+
+        console.log("X =",x,", Y =",y, checkIfInside);
+
+    </script>
+
+</body>
+</html>

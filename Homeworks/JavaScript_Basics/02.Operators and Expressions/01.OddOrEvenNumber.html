@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Write an expression that checks if given integer is odd or even.</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 1. Odd or Even - 
+		Write an expression that checks if given integer is odd or even.
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var intNumber = 0,
+			remainder = 0;
+		remainder = intNumber % 2;
+		if (remainder === 1) {
+			jsConsole.writeLine("The integer number " + intNumber + " is odd.");
+		} else if (remainder === 0) {
+			jsConsole.writeLine("The integer number " + intNumber + " is even.");
+		} else {
+			jsConsole.writeLine("The entered number is not integer.");
+		}
+	</script>
+</body>
+</html>

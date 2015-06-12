@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calc Trapezoid Area</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 8. Trapezoid area - Write an expression that calculates trapezoid's area by given sides a and b and height h.
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var sideA = 6,	 // to test - change this value
+			sideB = 2,	 // to test - change this value
+			heightH = 3, // to test - change this value
+			area = 0;
+		jsConsole.writeLine(' a = ' + sideA );
+		jsConsole.writeLine(' b = ' + sideB );
+		jsConsole.writeLine(' h = ' + heightH );
+
+		if ((sideA >= 0) && (sideB >= 0) && (heightH >= 0)) {
+			area = ((sideA + sideB) * heightH ) / 2;
+			jsConsole.writeLine('The trapezoid\'s area is ' + area + '.');
+		} else {
+			jsConsole.writeLine('The entered values are not possible to be sides in trapezoid.');
+		}
+	</script>
+</body>
+</html>

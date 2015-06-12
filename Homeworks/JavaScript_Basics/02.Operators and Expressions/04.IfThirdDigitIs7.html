@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>If third digit is 7</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 4. Third digit - Write an expression that checks for given integer if its third digit (right-to-left) is 7.
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var intNumber = 1713,
+			numberDividedBy100 = 0,
+			thirdDigit = 0;
+		numberDividedBy100 = ((intNumber / 100) | 0);
+		thirdDigit = numberDividedBy100 % 10;
+		jsConsole.writeLine('The third digit of the number ' + intNumber + ' is 7?')
+		if (thirdDigit === 7) {
+			jsConsole.writeLine(true);
+		} else {
+			jsConsole.writeLine(false);
+		}
+	</script>
+</body>
+</html>

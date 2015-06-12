@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Is point within a circle</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 6. Point in Circle - Write an expression that checks if given point P(x, y) is within a circle K({0,0}, 5). 
+		<br/>
+		//{0,0} is the centre and 5 is the radius
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var pointX = 0,
+			pointY = 6,
+			radius = 5,	// the radius is given -> K(O, 5)
+			condition;
+		condition = Math.sqrt(pointX * pointX + pointY * pointY);
+		if (condition < radius) {
+			jsConsole.writeLine('The point P(' + pointX + ',' + pointY + ') is within the circle K(0, 5).');
+		} else {
+			jsConsole.writeLine('The point P(' + pointX + ',' + pointY + ') is NOT within the circle K(0, 5).');
+		}
+	</script>
+</body>
+</html>

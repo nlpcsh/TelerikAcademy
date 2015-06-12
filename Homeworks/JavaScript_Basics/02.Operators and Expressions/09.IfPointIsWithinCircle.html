@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>If given number is prime</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="problem">
+        Problem 9. Point in Circle and outside Rectangle 
+        <br/>
+        Write an expression that checks for given point P(x, y) if it is within the circle K((1,1), 3) and out of the rectangle R(top=1, left=-1, width=6, height=2).
+    </div>
+    <br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+        var x = 2.5,
+            y = 2,
+            x1Rect = -1, // left side x
+            x2Rect = 5,  // right side x
+            y1Rect = 1,  // up  side y
+            y2Rect = -1, // down side y
+            xCircle = 1, // center point x
+            yCircle = 1, // center point y
+            rCircle = 3; // circle radii
+
+        var inRect = (((x <= x2Rect) && (x >= x1Rect)) && ((y <= y1Rect) && (y >= y2Rect))) ? true : false ;
+
+        var inCircle = (((x - xCircle) * (x - xCircle) + (y - yCircle) * (y - yCircle)) <= (rCircle * rCircle)) ? true : false ;
+
+        var checkIfInside = ((inCircle === true) && (inRect === false)) ? " => YES! The point is OUTSIDE the rectangle and INSIDE the circle!" : " => NO! The point is ontside of the area!" ;
+
+        jsConsole.writeLine('P(' + x + ',' + y + ') ' + checkIfInside);
+
+	</script>
+</body>
+</html>
