@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>10.Find palindromes</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 10. Find palindromes - Write a program that extracts from a given text all palindromes, e.g. "ABBA", "lamal", "exe".
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var text = 'Many e-mails are in the data base ABBA and the first one lamal and the second exe and so on.';
+
+    jsConsole.writeLine('Initial string to extract polindromes: ');
+    jsConsole.writeLine(text, 'yellow');
+    jsConsole.writeLine();
+    jsConsole.writeLine('Polindromes found: ');
+
+    extractPalindromes(text);
+
+    function extractPalindromes(input) {
+        var regex = /\b\w+\b/g,
+            matches = [],
+            match,
+            i;
+
+        while (match = regex.exec(input)) {
+            if (match[0] === match[0].split('').reverse().join('')) {
+                matches.push(match[0]);
+            }
+        }
+
+        for (i = 0; i < matches.length; i += 1) {
+            if (matches[i].length > 1) {
+                jsConsole.writeLine(matches[i], 'yellowgreen');
+            }
+
+        }
+    }
+    </script>
+</body>
+
+</html>

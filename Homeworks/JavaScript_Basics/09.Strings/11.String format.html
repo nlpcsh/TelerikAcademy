@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>11.String format</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 11. String format - Write a function that formats a string using placeholders.
+        <br/> The function should work with up to 30 placeholders and all types.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+    var text = 'The name of person is {0}, age {1}. He is friend with {2}.';
+
+    jsConsole.writeLine('String to format: ');
+    jsConsole.writeLine(text, 'yellow');
+    jsConsole.writeLine();
+
+    jsConsole.writeLine('Formated: ');
+    jsConsole.writeLine(formatString(text, 'Krum', 21, 'everybody'), 'yellowgreen');
+
+    function formatString(value, arg0, arg1, arg2) {
+        var result = value;
+
+        for (var i = 0, len = arguments.length; i < len - 1; i += 1) {
+            var pattern = '\\{' + i + '\\}';
+            var regex = new RegExp(pattern, 'g');
+
+            result = result.replace(regex, arguments[i + 1]);
+        }
+        return result;
+    }
+    </script>
+</body>
+
+</html>

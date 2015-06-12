@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>1.Reverse string</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 1. Reverse string - Write a JavaScript function that reverses a string and returns it.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var inputString = 'abcd iooo wq wz qa';
+
+    jsConsole.writeLine('Initial string:');
+    jsConsole.writeLine(inputString, 'yellow');
+
+    reverseString(inputString);
+
+    function reverseString(inputString) {
+        var stringBuilder = [],
+            len = inputString.length,
+            result;
+
+        for (var i = len, k = 0; i >= 0; i -= 1, k += 1) {
+            stringBuilder[k] = inputString[i];
+        }
+        result = stringBuilder.concat();
+        jsConsole.writeLine('Reverced string:')
+        jsConsole.writeLine(result.join(''),'yellowgreen');
+    }
+    </script>
+</body>
+
+</html>

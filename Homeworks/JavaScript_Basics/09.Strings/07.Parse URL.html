@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>7.Parse URL</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 7. Parse URL - Write a script that parses an URL address given in the format: [protocol]://[server]/[resource] and extracts from it the [protocol], [server] and [resource] elements.
+        <br/> Return the elements in a JSON object.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var url = 'http://www.devbg.org/forum/index.php';
+
+    jsConsole.writeLine('Initial string to process: ');
+    jsConsole.writeLine(url, 'yellow');
+    jsConsole.writeLine('');
+    jsConsole.writeLine('Processed string: ');
+    jsConsole.writeLine(parseURL(url), 'yellowgreen');
+
+    function parseURL(url) {
+        var protokol = url.substring(0, url.indexOf(':')),
+            server = url.substring(url.indexOf(':') + 3, url.indexOf('/', url.indexOf(':') + 3)),
+            resource = url.substr(url.indexOf('/', url.indexOf(':') + 3) + 1),
+            extractedUrl = '{protokol: "' + protokol + '", server: "' + server +
+            '", resource: "/' + resource + '"}';
+
+        return extractedUrl;
+    }
+    </script>
+</body>
+
+</html>

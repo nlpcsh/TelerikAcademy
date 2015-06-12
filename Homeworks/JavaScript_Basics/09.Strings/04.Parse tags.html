@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>4.Parse tags</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 4. Parse tags - You are given a text. Write a function that changes the text in all regions:
+        <br/>&lt;upcase>text&lt;/upcase> to uppercase.
+        <br/>&lt;lowcase>text&lt;/lowcase> to lowercase
+        <br/>&lt;mixcase>text&lt;/mixcase> to mix casing(random)
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var inputText = 'We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>don\'t</mixcase> have <lowcase>ANITHING</lowcase> else.';
+
+    jsConsole.writeLine('Initial string: ');
+    jsConsole.writeLine(inputText);
+    jsConsole.writeLine('');
+
+    jsConsole.writeLine('The new string: ');
+    jsConsole.writeLine(editText(inputText));
+
+    function editText(text) {
+        var size = 'upcase',
+            textChanges = changeLetterSize(text, size);
+
+        size = 'lowcase';
+        var textChanges2 = changeLetterSize(textChanges, size);
+
+        // index to change every n-th letter to upper
+        var nthIndex = 2;
+        size = 'mixcase';
+        var textChanges3 = changeLetterSize(textChanges2, size, nthIndex);
+
+        return textChanges3;
+    }
+
+    function changeLetterSize(text, size, nthIndex) {
+        var indexStart = text.indexOf('<' + size + '>'),
+        	changedText,
+        	mixedText;
+
+        while (indexStart > -1) {
+            var toChangeTxt = text.substring(indexStart + (size.length + 2), text.indexOf('</' + size + '>', indexStart));
+
+            if (size === 'upcase') {
+                changedText = toChangeTxt.toUpperCase();
+            } else if (size === 'lowcase') {
+                changedText = toChangeTxt.toLowerCase();
+            } else if (size === 'mixcase') {
+                mixedText = new String(toChangeTxt);
+
+                for (var i = 0; i < mixedText.length; i += 1) {
+                    if (i % nthIndex === 0) {
+                        changedText = mixedText.replace(mixedText[i], mixedText[i].toUpperCase());
+                    }
+                }
+            }
+
+            text = text.replace(toChangeTxt, changedText);
+
+            indexStart = text.indexOf('<' + size + '>', indexStart + 1);
+        }
+        return text;
+    }
+    </script>
+</body>
+
+</html>

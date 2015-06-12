@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2.Correct brackets</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 2. Correct brackets - Write a JavaScript function to check if in a given expression the brackets are put correctly.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var inputString = '((abcd)+i(ooo wq wz qa))',
+    	inputString2 = '((abcd))+i(ooo wq wz qa))';
+
+    jsConsole.writeLine('Initial string:');
+    jsConsole.writeLine(inputString, 'yellow');
+    checkBrackets(inputString);
+
+    jsConsole.writeLine();
+
+    jsConsole.writeLine('Initial string 2:');
+    jsConsole.writeLine(inputString2, 'yellow');
+    checkBrackets(inputString2);
+
+    function checkBrackets(input){
+    	var leftCount = checkSimbol(input, '('),
+        	rightCount = checkSimbol(input, ')');
+
+	    if (leftCount === rightCount) {
+	        jsConsole.writeLine('The brakets count is all right: ' + leftCount);
+	    } else {
+	        jsConsole.writeLine('Wrong number of brakets!');
+	        jsConsole.writeLine('There are ' + leftCount + ' left and ' + rightCount + ' right brakets!');
+	    }
+    }
+    
+    function checkSimbol(string, expr) {
+        var count = 0,
+            i;
+
+        for (i = 0; i < string.length; i += 1) {
+            if (string[i] === expr) {
+                count += 1;
+            }
+        }
+        return count;
+    }
+    </script>
+</body>
+
+</html>

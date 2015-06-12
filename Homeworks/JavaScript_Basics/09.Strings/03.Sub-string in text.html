@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>3.Sub-string in text</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 3. Sub-string in text - Write a JavaScript function that finds how many times a substring is contained in a given text (perform case insensitive search).
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var inputString = 'We are living in an yellow submarine. We don\'t have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.',
+        searchStr = 'in';
+
+    jsConsole.writeLine('Initial string:   ' + inputString);
+    jsConsole.writeLine('');
+    jsConsole.writeLine('Search-in string: ' + searchStr);
+
+    jsConsole.writeLine('The word appears: ' + checkString(inputString, searchStr) + ' times.');
+
+    function checkString(string, expr) {
+        var count = 0,
+            caseInsensitive = string.toLowerCase();
+        exprIndex = caseInsensitive.indexOf(expr);
+
+        while (exprIndex > -1) {
+            count += 1;
+            exprIndex = caseInsensitive.indexOf(expr, exprIndex + 1);
+        }
+        return count;
+    }
+    </script>
+</body>
+
+</html>

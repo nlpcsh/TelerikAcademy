@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>6.Extract text from HTML</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 6. Extract text from HTML - Write a function that extracts the content of a html page given as text.
+		<br/> The function should return anything that is in a tag, without the tags.
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var textToPrint = '&lt;html>&lt;head>&lt;title>Sample site&lt;/title>&lt;/head>&lt;body>&lt;div>text&lt;div>more text&lt;/div>and more...&lt;/div>in body&lt;/body>&lt;/html>',
+			inputText = '<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>' ;
+
+		jsConsole.writeLine('Initial string to extract text only: ');
+		jsConsole.writeLine(textToPrint, 'yellow');
+		jsConsole.writeLine('');
+		jsConsole.writeLine('Processed string: ');
+		jsConsole.writeLine(extractText(inputText), 'yellowgreen');
+
+		function extractText(text) 
+		{
+			var regex = /(<([^>]+)>)/ig , 
+				result = text.replace(regex, '');
+
+			return result;
+		}
+	</script>
+</body>
+</html>

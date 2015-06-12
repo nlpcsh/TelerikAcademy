@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>8.Replace tags</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 8. Replace tags - Write a JavaScript function that replaces in a HTML document given as string all the tags &lt;a href="…">…&lt;/a> with corresponding tags [URL=…]…/URL].
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var textToPrint = '&lt;p>Please visit &lt;a href="http://academy.telerik. com">our site&lt;/a> to choose a training course. Also visit &lt;a href="www.devbg.org">our forum&lt;/a> to discuss the courses.&lt;/p>',
+        text = '<p>Please visit <a href="http://academy.telerik. com">our site</a> to choose a training course. Also visit <a href="www.devbg.org">our forum</a> to discuss the courses.</p>';
+
+    jsConsole.writeLine('Initial string to replace elements: ');
+    jsConsole.writeLine(textToPrint, 'yellow');
+    jsConsole.writeLine();
+    jsConsole.writeLine('Processed string: ');
+    jsConsole.writeLine(replaceTagA(text), 'yellowgreen');
+
+    function replaceTagA(text) {
+        var index = text.indexOf('<a');
+        while (index > -1) {
+            text = text.replace('<a', '[URL');
+            text = text.replace('</a>', '[/URL]');
+            index = text.indexOf('<a', index + 1);
+        }
+        return text;
+    }
+    </script>
+</body>
+
+</html>

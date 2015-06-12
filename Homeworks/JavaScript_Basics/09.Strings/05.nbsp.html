@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> </title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 5. nbsp - Write a function that replaces non breaking white-spaces in a text with & nbsp;
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var inputText = 'We are living in a yellow submarine. We don\'t have ANITHING else.';
+
+    jsConsole.writeLine('String to replase white-spaces: ');
+    jsConsole.writeLine(inputText);
+    jsConsole.writeLine('');
+    jsConsole.writeLine('New string: ');
+    jsConsole.writeLine(replaceWhiteSpaces(inputText, '&nbsp;'));
+
+    jsConsole.writeLine();
+    jsConsole.writeLine('Look in console (F12) to see the difference!', 'yellowgreen');
+
+    console.log(replaceWhiteSpaces(inputText, '&nbsp;'));
+
+    function replaceWhiteSpaces(text, expr) {
+        var result = '',
+            i;
+
+        for (i = 0; i < text.length; i += 1) {
+            if (text[i] === ' ') {
+                result += expr;
+            } else {
+                result += text[i];
+            }
+        }
+        return result;
+    }
+    </script>
+</body>
+
+</html>
