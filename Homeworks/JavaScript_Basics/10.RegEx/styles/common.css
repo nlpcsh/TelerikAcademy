@@ -1,0 +1,17 @@
+#problem {
+	font-size: 20px;
+}
+a {
+	color: black;
+	border: 1px solid black;
+	padding: 5px 15px;
+	text-decoration: none;
+	display: inline-block;
+	margin: 15px 0;
+}
+	a:hover {
+		text-decoration: underline;
+	}
+bold {
+	font-weight: bold;
+}

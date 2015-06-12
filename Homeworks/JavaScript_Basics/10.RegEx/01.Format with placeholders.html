@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>1.Format with placeholders</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        <bold>Problem 1.</bold> Format with placeholders - Write a function that formats a string. The function should have placeholders, as shown in the example
+        <br/> Add the function to the
+        <bold>String.prototype</bold>
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var options = {
+            name: 'John',
+            age: 23
+        },
+        stringToProcess = 'Hello, there! Are you #{name}? Are you #{age} old?';
+
+    jsConsole.writeLine('String to format: ');
+    jsConsole.writeLine(stringToProcess, 'yellow');
+    jsConsole.writeLine('Object with options: ');
+    jsConsole.writeLine(JSON.stringify(options), 'orange');
+   
+    if (!String.prototype.format) {
+        String.prototype.format = function(obj) {
+            var i, len = Object.keys(obj).length,
+                re,
+                keyNames = Object.keys(obj);
+            var newString = this;
+
+            for (i = 0; i < len; i += 1) {
+                re = new RegExp('#{' + keyNames[i] + '}', 'g');
+                newString = newString.replace(re, obj[keyNames[i]]);
+            }
+			return newString;
+        };
+    }
+
+    jsConsole.writeLine('Formated string: ');
+    jsConsole.writeLine(stringToProcess.format(options), 'yellowgreen');
+
+    </script>
+</body>
+
+</html>

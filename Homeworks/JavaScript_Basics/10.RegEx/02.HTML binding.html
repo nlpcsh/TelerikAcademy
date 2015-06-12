@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2.HTML binding</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+    <script src="scripts/string-extensions.js"></script>
+</head>
+
+<body>
+    <div id="problem">
+        <bold>Problem 2.</bold> HTML binding - Write a function that puts the value of an object into the content/attributes of HTML tags.
+        <br/> Add the function to the
+        <bold>String.prototype</bold>
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var str = '<div data-bind-content="name"></div>',
+        str2 = '<a data-bind-content="name" data-bind-href="link" data-bind-class="name"></а>';
+
+    jsConsole.writeLine('Strings to format:');
+    jsConsole.writeLine(str.htmlEscape(), 'yellow');
+    jsConsole.writeLine(str2.htmlEscape(), 'yellow');
+
+    String.prototype.bind = function(obj) {
+        var re,
+            reLink,
+            reClass,
+            len = Object.keys(obj).length,
+            keyNames = Object.keys(obj),
+        	output = this;
+
+        for (i = 0; i < len; i += 1) {
+            re = new RegExp('(<.*?data-bind-content="' + keyNames[i] + '".*?>)(.*?)(<\\s*/.*?>)', 'g');
+            reLink = new RegExp('(<.*?data-bind-href="' + keyNames[i] + '".*?)>', 'g');
+            reClass = new RegExp('(<.*?data-bind-class="(' + keyNames[i] + ')".*?)>', 'g');
+
+            output = output.replace(re, function(element, openingTag, content, closingTag) {
+                return openingTag + obj[keyNames[i]] + closingTag;
+            });
+
+            output = output.replace(reLink, function(tag, result) {
+                return result + ' href="' + obj[keyNames[i]] + '">';
+            });
+
+            output = output.replace(reClass, function(tag, result) {
+                return result + ' class="' + obj[keyNames[i]] + '">';
+            });
+        }
+
+        return output;
+    };
+
+    jsConsole.writeLine('Formated html strings:');
+    jsConsole.writeLine(str.bind({
+        name: 'Steven'
+    }).htmlEscape(), 'yellowgreen');
+    jsConsole.writeLine(str2.bind({
+        name: 'Elena',
+        link: 'http://telerikacademy.com'
+    }).htmlEscape(), 'yellowgreen');
+    </script>
+</body>
+
+</html>
