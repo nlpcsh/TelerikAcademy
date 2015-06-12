@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>7.Binary search</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 7. Binary search - Write a script that finds the index of given element in a sorted array of integers by using the binary search algorithm.
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		function OrderedBySize(a, b) {
+		    return (a === b) ? 0 : (a > b) ? 1 : -1;
+		}
+
+		var arr = [4, 0, 9, 5, 1, 2, 22, 6, 7, 8, 40, 21, 66, 111, 19, 17],
+		    startIndex = 0,
+		    endIndex = arr.length,
+		    centerIndex,
+		    pivot;
+
+		//jsConsole.writeLine('Initial array:' + arr);
+
+		arr.sort(OrderedBySize);
+		jsConsole.writeLine('Sorted initial array: ' + arr);
+
+		// =================================
+		// for the given array index changes from 0-15 !!!
+		pivot = arr[5];
+		// ===============================
+
+		jsConsole.writeLine('Element which index we search: ' + pivot);
+
+		centerIndex = parseInt(endIndex / 2);
+
+		while (true) {
+		    if (pivot === arr[centerIndex]) {
+		        jsConsole.writeLine('Index of the element is: ' + centerIndex);
+		        break;
+		    }
+
+		    if (pivot < arr[centerIndex]) {
+		        endIndex = centerIndex;
+		    } else {
+		        startIndex = centerIndex;
+		    }
+
+		    centerIndex = parseInt((startIndex + endIndex) / 2);
+		}
+
+	</script>
+</body>
+</html>

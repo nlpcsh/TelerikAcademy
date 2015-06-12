@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4.Maximal increasing sequence</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 4. Maximal increasing sequence - Write a script that finds the maximal increasing sequence in an array.
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var arr = [4, 4, 5, 5, 1, 1, 1, 1, 2, 3, 4, 5, 1, 7],
+			start = 0, 
+			len = 1, 
+			bestStart = 0, 
+			bestLen = 0,
+			i = 0;
+
+		jsConsole.write('In the array: ');
+		jsConsole.writeLine(arr);
+
+		for (i in arr) {
+			if (arr[i] === arr[i-1] + 1) {
+				start = i ;
+				len += 1 ;
+
+				if (len >= bestLen) {
+					bestLen = len ;
+					bestStart = start ;
+				}
+			} else {
+				start = 0;
+				len = 1;
+			}
+		}
+
+		jsConsole.write('maximal length of the sequnce of same elements is: ');
+		jsConsole.writeLine(bestLen);
+		jsConsole.write('The sequnce of same elements is: ');
+
+		for (i = (bestStart - bestLen + 1); i <= bestStart; i+=1) {
+			jsConsole.write(arr[i] + ' ');
+		}
+	</script>
+</body>
+</html>

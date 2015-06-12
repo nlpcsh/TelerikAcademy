@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>6.Most frequent number</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 6. Most frequent number - Write a script that finds the most frequent number in an array.
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		function OrderedBySize(a, b) {
+		    return (a === b) ? 0 : (a > b) ? 1 : -1;
+		}
+
+		var arr = [4, 0, 9, 5, 1, 2, 0, 6, 7, 8, 0, 2, 1, 1, 17, 17, 17],
+		    arrMaxSequnces = [],
+		    bestLen = 0,
+		    bestStart = 0,
+		    bestLenMany = 0,
+		    len = 1,
+		    i = 0;
+
+		jsConsole.writeLine('Initial array: ' + arr);
+
+		arr.sort(OrderedBySize);
+
+		for (i = 0; i <= arr.length - 1; i += 1) {
+		    if (arr[i] === arr[i - 1]) {
+		        len += 1;
+
+		        if (len > bestLen) {
+		            bestLen = len;
+		            bestStart = i;
+		        }
+		    } else {
+		        len = 1;
+		    }
+		}
+
+		// check for more than one sequence with same max length 
+		len = 1;
+
+		for (i = 0; i <= arr.length - 1; i += 1) {
+		    if (arr[i] === arr[i - 1]) {
+		        len += 1;
+
+		        if (len === bestLen) {
+		            arrMaxSequnces[bestLenMany] = arr[i];
+		            bestLenMany += 1;
+		        }
+		    } else {
+		        len = 1;
+		    }
+		}
+
+		jsConsole.writeLine('Most frequent number(s): ' + arrMaxSequnces.join(' | '));
+		jsConsole.writeLine('Frequency: ' + bestLen);
+
+	</script>
+</body>
+</html>

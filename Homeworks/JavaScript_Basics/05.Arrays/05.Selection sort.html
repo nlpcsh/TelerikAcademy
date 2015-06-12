@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>5.Selection sort</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 5. Selection sort - Sorting an array means to arrange its elements in increasing order.
+		<br/>
+		Write a script to sort an array.
+		<br/>
+		Use the selection sort algorithm: Find the smallest element, move it at the first position, find the smallest from the rest, move it at the second position, etc.
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var arr = [4, 0, 9, 5, 1, 2, 3, 6, 7, 8, 10, 22, 11, 17],
+			sortedArray = [],
+			maxValIndex = 0,
+			maxVal = arr[0],
+			len = arr.length,
+			i = 0, 
+			m = 0;
+
+		jsConsole.writeLine('Present array: ' + arr);
+		jsConsole.writeLine('Sorted  array (ascendent order): ');
+
+		for (i = 0; i < len; i+=1) {
+			for (m = arr.length - 1; m >= 0; m-=1) {
+				if (arr[m] >= maxVal) {
+					maxVal = arr[m];
+					maxValIndex = m ;
+				}
+			}
+
+			sortedArray.unshift(maxVal);
+			arr.splice(maxValIndex,1);
+			maxVal = arr[0] ;
+		}
+
+		jsConsole.writeLine(sortedArray);
+
+	</script>
+</body>
+</html>

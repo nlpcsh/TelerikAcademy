@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>1.Increase array members</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 1. Increase array members - Write a script that allocates array of 20 integers and initializes each element by its index multiplied by 5.
+		<br/>
+		Print the obtained array on the console.
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var arr = new Array(20),
+			index;
+
+		for (index = 0; index < 20; index+=1) {
+			arr[index] = index * 5 ;
+		}
+
+		jsConsole.writeLine("arr = " + arr.join(", "));
+	</script>
+</body>
+</html>

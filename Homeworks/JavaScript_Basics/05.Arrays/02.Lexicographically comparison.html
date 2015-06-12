@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2.Lexicographically comparison</title>
+	<meta charset="utf-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="problem">
+		Problem 2. Lexicographically comparison - Write a script that compares two char arrays lexicographically (letter by letter).
+	</div>
+	<br/>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var arr1 = new Array('alfa', 'betta', 'gamma'),
+			arr2 = new Array('rho', 'pi', 'tetha'),
+			string1 = '',
+			string2 = '',
+			i=0;
+
+		jsConsole.writeLine('Arrays: ');
+		jsConsole.writeLine(arr1);
+		jsConsole.writeLine(arr2);
+
+		if (arr1.length == arr2.length) {
+			for (i in arr1) {
+				string1 = string1 + arr1[i];
+				string2 = string2 + arr2[i];
+			}
+			if (string1 === string2) {
+				jsConsole.writeLine('... are equal by length and content!');
+			} else {
+				jsConsole.writeLine('... are equal by number of elements, but not equal by content!');
+			}
+		} else {
+			jsConsole.writeLine('... NOT equal by number of elements!');
+		}
+	</script>
+</body>
+</html>
