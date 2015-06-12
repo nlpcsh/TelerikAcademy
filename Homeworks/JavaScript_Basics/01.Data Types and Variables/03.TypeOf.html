@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data types and variables - Integer types</title>
+	<meta charset="UTF-8">
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div id="problem">
+		Problem 3. Typeof variables - 
+		Try typeof on all variables you created.
+	</div>
+	<br/>
+	<div id="js-console"></div>				 
+	<script src="scripts/js-console.js"></script>
+	<script>
+		var boolTrue = true,
+			boolFalse = false,
+			floatNumber = 1.234,
+			negativeFloatNumber = -1.1234,
+			intNumber = 123456,
+			negativeIntNumber = -123456,
+			intNumberSecond = new Number(123456),
+			string = "Drakonche",
+			array = [1,2,3,4,5];
+
+		jsConsole.writeLine("Type of Bool true = " + typeof(boolTrue));
+		jsConsole.writeLine("Type of Bool false = " + typeof(boolFalse));
+		jsConsole.writeLine("Type of Float number = " + typeof(floatNumber));
+		jsConsole.writeLine("Type of Negative float = " + typeof(negativeFloatNumber));
+		jsConsole.writeLine("Type of Int number = " + typeof(intNumber));
+		jsConsole.writeLine("Type of second Int number = " + typeof(intNumberSecond));
+		jsConsole.writeLine("Type of String = " + typeof(string));
+		jsConsole.writeLine("Type of Array = " + typeof(array));
+	</script>
+</body>
+
+</html>
