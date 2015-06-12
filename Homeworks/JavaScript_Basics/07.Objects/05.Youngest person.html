@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>5.Youngest person</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 5. Youngest person - Write a function that finds the youngest person in a given array of people and prints his/hers full name
+        <br/>
+		Each person has properties firstname, lastname and age.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var people = [{
+        firstName: 'Misho',
+        lastName: 'Petrov',
+        age: 12
+    }, {
+        firstName: 'Mariika',
+        lastName: 'Spasova',
+        age: 123
+    }, {
+        firstName: 'Stanoi',
+        lastName: 'Dobrev',
+        age: 19
+    }],
+    i;
+
+    var theYoungest = findTheYoungest(people);
+    // print people
+    for (i = 0, len = people.length; i < len; i += 1 ) {
+    	jsConsole.writeLine(' ' + people[i].firstName + ' '+ people[i].lastName + ' - age: ' + people[i].age);
+    }
+
+    jsConsole.writeLine(' The the youngest person is: ' + theYoungest.firstName);
+    jsConsole.writeLine(' His/hers age is: ' + theYoungest.age);
+
+    function findTheYoungest(array) {
+        var theYoungest = {},
+            minAge = 1000,
+            checkMaxAge = 0,
+            i, len;
+
+        for (i = 0, len = array.length; i < len; i += 1) {
+            if (array[i].age < minAge) {
+                minAge = array[i].age;
+                theYoungest = array[i];
+                checkMaxAge += 1;
+            }
+        }
+        if (checkMaxAge === 0) {
+            theYoungest.firstName = 'Very Very Very Old guy!';
+            theYoungest.age = 'more than 1000 years old!';
+        }
+        return theYoungest;
+    }
+    </script>
+</body>
+
+</html>

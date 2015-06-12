@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>1.Planar coordinates</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 1. Planar coordinates - Write functions for working with shapes in standard Planar coordinate system.
+        <br/> Points are represented by coordinates P(X, Y)
+        <br/> Lines are represented by two points, marking their beginning and ending L(P1(X1,Y1), P2(X2,Y2))
+        <br/> Calculate the distance between two points.
+        <br/> Check if three segment lines can form a triangle.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var pointA = makePoint(1.3, 1.02),
+        pointB = makePoint(1.9, 3.22),
+        pointC = makePoint(4.4, 2.5),
+        pointD = makePoint(8.4, 4.5),
+        pointE = makePoint(2.4, 0.5),
+        pointF = makePoint(3.4, 1.5),
+        lineAB = makeLine(pointA, pointB),
+        lineCD = makeLine(pointC, pointD),
+        lineEF = makeLine(pointE, pointF);
+
+    jsConsole.writeLine(' point A(' + pointA.x + ', ' + pointA.y + ')');
+    jsConsole.writeLine(' point B(' + pointB.x + ', ' + pointB.y + ')');
+    jsConsole.writeLine(' point C(' + pointC.x + ', ' + pointC.y + ')');
+    jsConsole.writeLine(' point D(' + pointD.x + ', ' + pointD.y + ')');
+    jsConsole.writeLine(' point E(' + pointE.x + ', ' + pointE.y + ')');
+    jsConsole.writeLine(' point F(' + pointF.x + ', ' + pointF.y + ')');
+
+    jsConsole.writeLine(' The distance beteween points A and B = ' + calculateDistance(pointA, pointB));
+    jsConsole.writeLine(' The lines AB, CD and DE can for triangle = ' + isTrinagle(lineAB, lineCD, lineEF));
+
+    function makePoint(xPos, yPos) {
+        return {
+            x: xPos,
+            y: yPos
+        }
+    }
+
+    function makeLine(point1, point2) {
+        return {
+            p1: point1,
+            p2: point2,
+            lengthP1P2: calculateDistance(point1, point2)
+        }
+    }
+
+    function calculateDistance(point1, point2) {
+        var dX = point1.x - point2.x,
+            dY = point1.y - point2.y,
+            distance = Math.sqrt(dX * dX + dY * dY);
+
+        return distance;
+    }
+
+    function isTrinagle(line1, line2, line3) {
+        var sumLine1Line2 = line1.lengthP1P2 + line2.lengthP1P2,
+            sumLine1Line3 = line1.lengthP1P2 + line3.lengthP1P2,
+            sumLine2Line3 = line2.lengthP1P2 + line3.lengthP1P2,
+            isTrinaglePossible = false;
+
+        jsConsole.writeLine('length of Line 1 = ' + line1.lengthP1P2);
+        jsConsole.writeLine('length of Line 2 = ' + line2.lengthP1P2);
+        jsConsole.writeLine('length of Line 3 = ' + line3.lengthP1P2);
+
+        isTrinaglePossible = ((sumLine1Line2 >= line3.lengthP1P2) &&
+            (sumLine1Line3 >= line2.lengthP1P2) &&
+            (sumLine2Line3 >= line1.lengthP1P2));
+
+        return isTrinaglePossible;
+    }
+    </script>
+</body>
+
+</html>

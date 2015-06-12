@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>4.Has property</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 4. Has property - Write a function that checks if a given object contains a given property.
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var porshe = {
+        color: 'red',
+        maxSpeed: 300
+    }
+
+    if (checkProperty(porshe, 'maxSpeed') == true) {
+        jsConsole.writeLine('The property "maxSpeed" exists!');
+    } else {
+        jsConsole.writeLine('No such property as "maxSpeed"!');
+    }
+
+    function checkProperty(obj, propertyName) {
+        for (var property in obj) {
+            if (property == propertyName) {
+                return true;
+            }
+        }
+        return false;
+    }
+    </script>
+</body>
+
+</html>

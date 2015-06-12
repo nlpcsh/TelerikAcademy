@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>6.Sort by key</title>
+    <meta charset="utf-8">
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="problem">
+        Problem 6. Sort by key - Write a function that groups an array of people by age, first or last name.
+        <br/> The function must return an associative array, with keys - the groups, and values - arrays with people in this groups
+        <br/> Use function overloading (i.e. just one function)
+    </div>
+    <br/>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+    var guys = [{
+        firstName: 'Alex',
+        lastName: 'Petrov',
+        age: 12
+    }, {
+        firstName: 'Mariika',
+        lastName: 'Spasova',
+        age: 123
+    }, {
+        firstName: 'Misho',
+        lastName: 'Dobrev',
+        age: 19
+    }, {
+        firstName: 'Stanoi',
+        lastName: 'Woo',
+        age: 29
+    }];
+
+    var groupedByFname = sortedBy(guys, 'firstName');
+    jsConsole.writeLine('Sorted by First Name:');
+    printSorted(groupedByFname);
+    jsConsole.writeLine(' ');
+
+    var groupedByAge = sortedBy(guys, 'age');
+    jsConsole.writeLine('Sorted by Age:');
+    printSorted(groupedByAge);
+
+    function sortedBy(arr, property) {
+        var result = {},
+            key;
+
+        for (var person in guys) {
+            key = arr[person][property];
+
+            if (hasKey(result, arr[person][property])) {
+                result[key].push(arr[person]);
+            } else {
+                result[key] = [];
+                result[key].push(arr[person]);
+            }
+        }
+
+        return result;
+    }
+
+    function printSorted(sortedObj) {
+        for (var obj in sortedObj) {
+            jsConsole.writeLine();
+            jsConsole.writeLine('Keyword: ' + obj);
+            jsConsole.writeLine('Person: ');
+
+            for (var person in sortedObj[obj]) {
+                var currPerson = sortedObj[obj][person];
+                jsConsole.writeLine('  First name: ' + currPerson.firstName +
+                    ', Last name: ' + currPerson.lastName + ', Age: ' + currPerson.age);
+            }
+        }
+    }
+
+    function hasKey(obj, key) {
+        for (var property in obj) {
+            if (property === key) {
+                return true;
+            }
+        }
+        return false;
+    }
+    </script>
+</body>
+
+</html>
