@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 1. class_123 in CSharp", "Task 1. class_123 in CSharp\Task 1. class_123 in CSharp.csproj", "{F2666C49-47D5-42DE-B5FD-D1B19C1D48E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 2. Make_Чуек in CSharp", "Task 2. Make_Чуек in CSharp\Task 2. Make_Чуек in CSharp.csproj", "{AB04427B-4C19-4E37-9DA2-C325C76E3F5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 2. Make_Man in CSharp", "Task 2. Make_Man in CSharp\Task 2. Make_Man in CSharp.csproj", "{AB04427B-4C19-4E37-9DA2-C325C76E3F5F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 4. Re-factor and improve the code", "Task 4. Re-factor and improve the code\Task 4. Re-factor and improve the code.csproj", "{94DC749D-1CFB-436F-931A-5B4A71790B70}"
 EndProject
