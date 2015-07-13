@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Game.cs" />
     <Compile Include="Input.cs" />
+    <Compile Include="Interfaces\IPrintable.cs" />
     <Compile Include="MineSweeper.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

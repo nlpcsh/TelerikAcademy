@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    internal static class Output
+    internal static class Output 
     {
         internal static void PrintHello()
         {
