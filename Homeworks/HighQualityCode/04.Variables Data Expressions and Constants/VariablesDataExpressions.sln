@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 1.Class Size in C", "Task 1.Class Size in C\Task 1.Class Size in C.csproj", "{FEE49193-5FA9-4251-B011-832F90289B37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 2.MethodPrintStatistics", "Task 2.MethodPrintStatistics\Task 2.MethodPrintStatistics.csproj", "{1B2197A6-A35B-4B70-A1FF-A5403880A661}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEE49193-5FA9-4251-B011-832F90289B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE49193-5FA9-4251-B011-832F90289B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE49193-5FA9-4251-B011-832F90289B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE49193-5FA9-4251-B011-832F90289B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B2197A6-A35B-4B70-A1FF-A5403880A661}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B2197A6-A35B-4B70-A1FF-A5403880A661}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B2197A6-A35B-4B70-A1FF-A5403880A661}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B2197A6-A35B-4B70-A1FF-A5403880A661}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
