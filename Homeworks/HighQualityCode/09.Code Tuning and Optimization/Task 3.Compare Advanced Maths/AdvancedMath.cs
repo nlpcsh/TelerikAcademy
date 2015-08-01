@@ -21,6 +21,43 @@
             }
         }
 
+        private static T Sqrt<T>(T number)
+        {
+            T epsilon = (dynamic)0;
+
+            if (number.GetType() == typeof(float))
+            {
+                epsilon = (dynamic)(float)1.0e-7;
+            }
+            else if (number.GetType() == typeof(double))
+            {
+                epsilon = (dynamic)1.0e-15;
+            }
+            else if (number.GetType() == typeof(decimal))
+            {
+                epsilon = (dynamic)(decimal)1.0e-28;
+            }
+            else
+            {
+                throw new NotImplementedException("Not implemented for different than 'decimal', 'double' and 'float' data types!");
+            }
+
+            //// closer to sqrt of number
+            T sqrt = (dynamic)2; 
+
+            T delta = (dynamic)1;
+
+            while (delta > (dynamic)epsilon)
+            {
+                delta = sqrt;
+                sqrt = (sqrt + (dynamic)number / sqrt) / 2;
+                delta -= (dynamic)sqrt;
+                //Console.WriteLine("sqrt = {0}, delta = {1}", sqrt, delta);
+            }
+
+            return sqrt;
+        }
+
         public static void CompareMathOperations<T>(T number, string operation)
         {
             var totalCalcTime = new List<TimeSpan>();
@@ -34,7 +71,7 @@
                 {
                     switch (operation)
                     {
-                        case "SquareRoot": SquareRoot(number);
+                        case "SquareRoot": Sqrt(number);
                             break;
                         case "Ln": ; // Ln(number);
                             break;
@@ -50,200 +87,6 @@
             }
 
             Console.WriteLine(" Averaged time for {0} operation of type {1} is: {2} s-3", operation, typeof(T), totalCalcTime.Average(x => x.Milliseconds));
-        }
-
-        /// <summary>
-        /// Babylonian method to find square root
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="number"></param>
-        private static void SquareRoot<T>(T number)
-        {
-            /*
-                  find more detail of this method on wiki methods_of_computing_square_roots
-
-                  *** Babylonian method cannot get exact zero but approximately value of the quare_root
-             */
-
-            if (number.GetType() == typeof(float))
-            {
-                SquareRootFloat((dynamic)number);
-            }
-            else if (number.GetType() == typeof(decimal))
-            {
-                // SquareRootDecimal((dynamic)number);
-            }
-            else
-            {
-                SquareRootDouble((dynamic)number);
-            }
-        }
-
-        private static void SquareRootDouble(double number)
-        {
-            double z = number;
-            double rst = 0d;
-            double j = 1d;
-            double powerOfTenValue = 0d;
-
-            byte max = 15;
-
-            for (byte i = max; i > 0; i--)
-            {
-                powerOfTenValue = powerOfTenDouble(i);
-
-                // value must be bigger then 0
-                if (z - ((2d * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue) >= 0d)
-                {
-                    while (z - ((2d * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue) >= 0d)
-                    {
-                        j += 1d;
-
-                        if (j >= 10d)
-                        {
-                            break;
-                        }
-                    }
-
-                    ////correct the extra value by minus one to j
-                    j -= 1d;
-
-                    ////find value of z
-                    z -= ((2d * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue);
-
-                    //// find sum of a
-                    rst += j * powerOfTenValue;     
-
-                    j = 1d;
-                }
-            }
-
-            for (int i = 0; i >= 0 - max; i--)
-            {
-                powerOfTenValue = powerOfTenDouble(i);
-
-                if (z - ((2 * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue) >= 0d)
-                {
-                    while (z - ((2d * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue) >= 0d)
-                    {
-                        j += 1d;
-                    }
-
-                    j -= 1d;
-                    z -= ((2d * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue); //find value of z
-
-                    rst += j * powerOfTenValue;     // find sum of a
-                    j = 1d;
-                }
-            }
-            //Console.WriteLine(rst);
-            // find the number on each digit
-            //return rst;
-        }
-
-        private static double powerOfTenDouble(int num)
-        {
-            double rst = 1;
-            if (num >= 0)
-            {
-                for (int i = 0; i < num; i++)
-                {
-                    rst *= 10.0d;
-                }
-            }
-            else
-            {
-                for (int i = 0; i < (0 - num); i++)
-                {
-                    rst *= 0.1d;
-                }
-            }
-
-            return rst;
-        }
-
-        private static void SquareRootDecimal(decimal number)
-        {
-            /*
-                  find more detail of this method on wiki methods_of_computing_square_roots
-
-                  *** Babylonian method cannot get exact zero but approximately value of the quare_root
-             */
-            decimal z = number;
-            decimal rst = 0m;
-            decimal j = 1m;
-            decimal powerOfTenValue = 0m;
-
-            byte max = 28;    // to define maximum digit 
-
-            for (byte i = max; i > 0; i--)
-            {
-                powerOfTenValue = powerOfTenDecimal(i);
-
-                // value must be bigger then 0
-                if (z - ((2m * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue) >= 0m)
-                {
-                    while (z - ((2m * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue) >= 0m)
-                    {
-                        j += 1m;
-
-                        if (j >= 10m)
-                        {
-                            break;
-                        }
-                    }
-
-                    j -= 1m; //correct the extra value by minus one to j
-                    z -= ((2m * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue); //find value of z
-
-                    rst += j * powerOfTenValue;     // find sum of a
-
-                    j = 1m;
-                }
-            }
-
-            for (int i = 0; i >= 0 - max; i--)
-            {
-                powerOfTenValue = powerOfTenDecimal(i);
-
-                if (z - ((2m * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue) >= 0m)
-                {
-                    while (z - ((2m * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue) >= 0m)
-                    {
-                        j += 1m;
-                    }
-
-                    j -= 1m;
-                    z -= ((2m * rst) + (j * powerOfTenValue)) * (j * powerOfTenValue); //find value of z
-
-                    rst += j * powerOfTenValue;     // find sum of a
-                    j = 1m;
-                }
-            }
-            //Console.WriteLine(rst);
-            // find the number on each digit
-            //return rst;
-        }
-
-        private static decimal powerOfTenDecimal(int num)
-        {
-            decimal rst = 1;
-            if (num >= 0)
-            {
-                for (int i = 0; i < num; i++)
-                {
-                    rst *= 10.0m;
-                }
-            }
-            else
-            {
-                for (int i = 0; i < (0 - num); i++)
-                {
-                    rst *= 0.1m;
-                }
-            }
-
-            return rst;
         }
 
         private static void SquareRootFloat(float number)
@@ -396,7 +239,7 @@
             {
                 pi = (dynamic)3.1415926535897932384626433832795028841971693993751d;
             }
-            
+
 
             T angleRads = (angle / (dynamic)180) * pi;
             T sinus = angleRads - (dynamic)angleRads * angleRads * angleRads / CalculateFactoriel(3) +
