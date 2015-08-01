@@ -43,7 +43,7 @@
             }
 
             //// closer to sqrt of number
-            T sqrt = (dynamic)2; 
+            T sqrt = (dynamic)2;
 
             T delta = (dynamic)1;
 
@@ -62,6 +62,8 @@
         {
             var totalCalcTime = new List<TimeSpan>();
 
+            T value = (dynamic)0;
+
             for (int times = 0; times < 10; times++)
             {
                 Stopwatch sw = Stopwatch.StartNew();
@@ -71,11 +73,11 @@
                 {
                     switch (operation)
                     {
-                        case "SquareRoot": Sqrt(number);
+                        case "SquareRoot": value = Sqrt(number);
                             break;
                         case "Ln": ; // Ln(number);
                             break;
-                        case "Sin": Sin(number);
+                        case "Sin": value = Sin(number);
                             break;
                         default: Console.WriteLine("Operation not possible!");
                             break;
@@ -86,7 +88,7 @@
                 totalCalcTime.Add(sw.Elapsed);
             }
 
-            Console.WriteLine(" Averaged time for {0} operation of type {1} is: {2} s-3", operation, typeof(T), totalCalcTime.Average(x => x.Milliseconds));
+            Console.WriteLine(" Averaged time for {0} operation of type {1} is: \n  {2} [s-3],  value is: {3}", operation, typeof(T), totalCalcTime.Average(x => x.Milliseconds), value);
         }
 
         private static void SquareRootFloat(float number)
@@ -223,29 +225,52 @@
             return Sign * (n + ((dynamic)1 / Ln(eBbase)));
         }
 
-        private static void Sin<T>(T angle)
+        private static T Sin<T>(T angle)
         {
 
             T pi = (dynamic)0;
+
+            //// precision of calculation
+            byte precision = 1;
+
             if (pi.GetType() == typeof(float))
             {
                 pi = (dynamic)3.1415926535897932384626433832795028841971693993751f;
+                precision = 7;
+            }
+            else if (pi.GetType() == typeof(double))
+            {
+                pi = (dynamic)3.1415926535897932384626433832795028841971693993751d;
+                precision = 15;
             }
             else if (pi.GetType() == typeof(decimal))
             {
                 pi = (dynamic)3.1415926535897932384626433832795028841971693993751m;
+                precision = 27;
             }
             else
             {
-                pi = (dynamic)3.1415926535897932384626433832795028841971693993751d;
+                throw new NotImplementedException("Not implemented for different than 'decimal', 'double' and 'float' data types!");
             }
 
 
             T angleRads = (angle / (dynamic)180) * pi;
-            T sinus = angleRads - (dynamic)angleRads * angleRads * angleRads / CalculateFactoriel(3) +
-                (dynamic)angleRads * angleRads * angleRads * angleRads * angleRads / CalculateFactoriel(5) -
-                (dynamic)angleRads * angleRads * angleRads * angleRads * angleRads * angleRads * angleRads / CalculateFactoriel(7);
+            T sinus = angleRads;
+            T taylorsPart = (dynamic)angleRads * angleRads;
 
+
+            //// formula is:
+            //// sinus = angleRads - angleRads^3 / 3! + angleRads^5 / 5! - angleRads^7 / 7! ....;
+            for (int i = 3; i <= precision; i += 2)
+            {
+                for (int j = i - 1; j <= i; j++)
+                {
+                    taylorsPart *= (dynamic)(-1) * angleRads / j;
+                }
+                sinus = sinus + (dynamic)taylorsPart;
+            }
+
+            return sinus;
             //Console.WriteLine(sinus);
         }
 
