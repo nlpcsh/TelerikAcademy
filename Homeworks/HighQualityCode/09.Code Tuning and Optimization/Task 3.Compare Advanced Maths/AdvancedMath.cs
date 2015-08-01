@@ -31,11 +31,14 @@
             }
             else if (number.GetType() == typeof(double))
             {
-                epsilon = (dynamic)1.0e-15;
+                //epsilon = (dynamic)1.0e-15;
+                epsilon = (dynamic)(double)1.0e-7;
+
             }
             else if (number.GetType() == typeof(decimal))
             {
-                epsilon = (dynamic)(decimal)1.0e-28;
+                //epsilon = (dynamic)(decimal)1.0e-28;
+                epsilon = (dynamic)(decimal)1.0e-7;
             }
             else
             {
@@ -241,12 +244,14 @@
             else if (pi.GetType() == typeof(double))
             {
                 pi = (dynamic)3.1415926535897932384626433832795028841971693993751d;
-                precision = 15;
+                //precision = 15;
+                precision = 7;
             }
             else if (pi.GetType() == typeof(decimal))
             {
                 pi = (dynamic)3.1415926535897932384626433832795028841971693993751m;
-                precision = 27;
+                //precision = 27;
+                precision = 7;
             }
             else
             {
