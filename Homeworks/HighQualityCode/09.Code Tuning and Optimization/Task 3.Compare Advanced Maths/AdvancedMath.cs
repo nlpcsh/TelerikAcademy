@@ -13,9 +13,9 @@
 
             foreach (var ch in operations)
             {
-                CompareMathOperations(3f, ch);
-                CompareMathOperations(3d, ch);
-                CompareMathOperations(3m, ch);
+                CompareMathOperations(30f, ch);
+                CompareMathOperations(30d, ch);
+                CompareMathOperations(30m, ch);
 
                 Console.WriteLine("-------------------");
             }
@@ -258,10 +258,11 @@
                 throw new NotImplementedException("Not implemented for different than 'decimal', 'double' and 'float' data types!");
             }
 
-
             T angleRads = (angle / (dynamic)180) * pi;
             T sinus = angleRads;
-            T taylorsPart = (dynamic)angleRads * angleRads;
+            T taylorsPart = (dynamic)(-1) * angleRads;
+            int factorielPart = 1;
+            //T taylorsPartDiv = (dynamic)0;
 
 
             //// formula is:
@@ -270,9 +271,14 @@
             {
                 for (int j = i - 1; j <= i; j++)
                 {
-                    taylorsPart *= (dynamic)(-1) * angleRads / j;
+                    taylorsPart *= (dynamic)(-1) * angleRads ;
+                    factorielPart *= j;
                 }
-                sinus = sinus + (dynamic)taylorsPart;
+
+                //taylorsPartDiv= (dynamic)taylorsPart / factorielPart;
+                //sinus = sinus + (dynamic)taylorsPartDiv;
+
+                sinus = sinus + (dynamic)taylorsPart / factorielPart;
             }
 
             return sinus;
@@ -290,6 +296,5 @@
 
             return factoriel;
         }
-
     }
 }
